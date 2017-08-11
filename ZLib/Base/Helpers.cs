@@ -156,18 +156,6 @@ namespace ZLib.Base
 
     internal class Helpers
     {
-        #region Static Fields and Constants
-
-        internal static List<EventType> MenuTypes = new List<EventType>
-        {
-            EventType.Danger,
-            EventType.CrowdControl,
-            EventType.Ultimate,
-            EventType.ForceExhaust
-        };
-
-        #endregion
-
         /// <summary>
         ///     Returns if the matched hero is valid and in the current game.
         /// </summary>
@@ -201,7 +189,7 @@ namespace ZLib.Base
         /// </summary>
         internal static void CreateLogPath()
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs", "ZLib");
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs", "ZZephyr");
 
             if (Directory.Exists(path))
             {
@@ -219,8 +207,8 @@ namespace ZLib.Base
         internal static void ExportSpellData(Gamedata data, string type = null)
         {
             var path = 
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs", "ZLib",
-                    $"zlib_{data.ChampionName.ToLower()}.txt");
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs", "ZZephyr",
+                    $"zzephyr_{data.ChampionName.ToLower()}.txt");
 
             var file = new StreamWriter(path, true);
             if (data.SpellName.Contains("attack"))
