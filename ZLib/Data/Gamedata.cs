@@ -198,7 +198,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 0f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -299,7 +299,7 @@ namespace ZLib.Data
                 Radius = 300f,
                 CastRange = 800f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 2200
             });
 
@@ -322,7 +322,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.W,
                 CastRange = 660f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 2200
             });
 
@@ -397,7 +397,7 @@ namespace ZLib.Data
                     new[]
                     {
                         EventType.Danger, EventType.Ultimate,
-                        EventType.CrowdControl
+                        EventType.CrowdControl, EventType.Initiator 
                     },
                 MissileName = "",
                 MissileSpeed = int.MaxValue
@@ -703,7 +703,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 3400f,
                 Delay = 450f,
-                EventTypes = new[] { EventType.CrowdControl },
+                EventTypes = new[] { EventType.CrowdControl, EventType.Initiator },
                 MissileName = "bardr",
                 MissileSpeed = 2100
             });
@@ -865,7 +865,7 @@ namespace ZLib.Data
                     new[]
                     {
                         EventType.Danger, EventType.Ultimate,
-                        EventType.CrowdControl
+                        EventType.CrowdControl, EventType.Initiator
                     },
                 MissileName = "braumrmissile",
                 MissileSpeed = 1200
@@ -1123,7 +1123,7 @@ namespace ZLib.Data
                 FixedRange = true,
                 CastRange = 555f,
                 Delay = 150f,
-                EventTypes = new[] { EventType.CrowdControl, EventType.Danger },
+                EventTypes = new[] { EventType.CrowdControl, EventType.Danger, EventType.Initiator },
                 MissileName = "dariusaxegrabcone",
                 MissileSpeed = int.MaxValue
             });
@@ -1278,7 +1278,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -1466,7 +1466,7 @@ namespace ZLib.Data
                     new[]
                     {
                         EventType.Danger, EventType.Ultimate,
-                        EventType.CrowdControl
+                        EventType.CrowdControl, EventType.Initiator
                     },
                 MissileName = "evelynnr",
                 MissileSpeed = int.MaxValue
@@ -1621,7 +1621,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 500f,
                 Delay = 150f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -1874,7 +1874,7 @@ namespace ZLib.Data
                     new[]
                     {
                         EventType.Danger, EventType.Ultimate,
-                        EventType.CrowdControl
+                        EventType.CrowdControl, EventType.Initiator
                     },
 
                 MissileSpeed = int.MaxValue
@@ -1979,7 +1979,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 1150f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
+                EventTypes = new[] { EventType.Danger, EventType.CrowdControl, EventType.Initiator },
                 MissileName = "gragasrboom",
                 MissileSpeed = 1750
             });
@@ -2252,7 +2252,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 450f,
                 Delay = 500f,
-                EventTypes = new[] { EventType.Ultimate, EventType.Danger },
+                EventTypes = new[] { EventType.Ultimate, EventType.Danger, EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -2393,7 +2393,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.Q,
                 CastRange = 700f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.Danger },
+                EventTypes = new[] { EventType.Danger, EventType.Initiator },
                 MissileSpeed = 2200
             });
 
@@ -2553,7 +2553,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 FixedRange = true,
                 MissileName = "jhinrshotmis",
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 ExtraMissileNames = new[] { "jhinrmmissile", "jhinrshotmis4" },
                 MissileSpeed = 5000
             });
@@ -2791,7 +2791,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 550f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.ForceExhaust },
+                EventTypes = new[] { EventType.ForceExhaust, EventType.Initiator },
                 MissileSpeed = 1450
             });
 
@@ -2881,7 +2881,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 550f,
                 Delay = 500f,
-                EventTypes = new[] { EventType.Danger },
+                EventTypes = new[] { EventType.Danger, EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -2962,7 +2962,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 1000f,
                 Delay = 0f,
-                EventTypes = new[] { EventType.Stealth },
+                EventTypes = new[] { EventType.Stealth, EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -3059,7 +3059,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -3285,7 +3285,7 @@ namespace ZLib.Data
                     new[]
                     {
                         EventType.Danger, EventType.Ultimate,
-                        EventType.CrowdControl
+                        EventType.CrowdControl, EventType.Initiator
                     },
                 MissileSpeed = int.MaxValue
             });
@@ -3320,7 +3320,7 @@ namespace ZLib.Data
                 FixedRange = true,
                 CastRange = 900f,
                 Delay = 0f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileName = "leonazenithblademissile",
                 MissileSpeed = 2000
             });
@@ -3705,7 +3705,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.W,
                 CastRange = 650f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
+                EventTypes = new[] { EventType.Danger, EventType.CrowdControl, EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -3727,7 +3727,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 625f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -3771,7 +3771,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 370f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -4025,7 +4025,7 @@ namespace ZLib.Data
                 FixedRange = true,
                 CastRange = 2550f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
+                EventTypes = new[] { EventType.Danger, EventType.CrowdControl, EventType.Initiator },
                 MissileName = "namirmissile",
                 MissileSpeed = 1200
             });
@@ -4082,7 +4082,7 @@ namespace ZLib.Data
                 FixedRange = true,
                 CastRange = 1080f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.CrowdControl, EventType.Danger },
+                EventTypes = new[] { EventType.CrowdControl, EventType.Danger, EventType.Initiator },
                 MissileName = "nautilusanchordragmissile",
                 MissileSpeed = 2000
             });
@@ -4333,7 +4333,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -4387,7 +4387,7 @@ namespace ZLib.Data
                     new[]
                     {
                         EventType.Danger, EventType.Ultimate,
-                        EventType.CrowdControl
+                        EventType.CrowdControl, EventType.Initiator
                     },
                 MissileName = "orianadetonatecommand",
                 FromObject = new[] { "yomu_ring" },
@@ -4434,7 +4434,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 1000f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 3000
             });
 
@@ -4445,7 +4445,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 1000f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 3000
             });
 
@@ -4540,7 +4540,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.E,
                 CastRange = 700f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.CrowdControl },
+                EventTypes = new[] { EventType.CrowdControl, EventType.Initiator },
                 MissileSpeed = 775
             });
 
@@ -4595,7 +4595,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.E,
                 CastRange = 325f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.CrowdControl },
+                EventTypes = new[] { EventType.CrowdControl, EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -4787,9 +4787,9 @@ namespace ZLib.Data
                 SpellName = "reksair",
                 ChampionName = "reksai",
                 Slot = SpellSlot.R,
-                CastRange = 2.147484E+09f,
+                CastRange = 850,
                 Delay = 1000f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator, EventType.Ultimate },
                 MissileSpeed = int.MaxValue
             });
 
@@ -4893,7 +4893,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 1700f,
                 Delay = 400f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileName = "rumblecarpetbombmissile",
                 MissileSpeed = 1600
             });
@@ -4941,7 +4941,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 1400
             });
 
@@ -5071,7 +5071,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.E,
                 CastRange = 675f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.CrowdControl },
+                EventTypes = new[] { EventType.CrowdControl, EventType.Initiator },
                 MissileName = "shene",
                 MissileSpeed = 1600
             });
@@ -5202,7 +5202,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.E,
                 CastRange = 125f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.CrowdControl },
+                EventTypes = new[] { EventType.CrowdControl, EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -5259,7 +5259,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileName = "",
                 MissileSpeed = 500
             });
@@ -5402,7 +5402,7 @@ namespace ZLib.Data
                     new[]
                     {
                         EventType.Danger, EventType.Ultimate,
-                        EventType.CrowdControl
+                        EventType.CrowdControl, EventType.Initiator
                     },
                 MissileName = "sonar",
                 MissileSpeed = 2400
@@ -5640,7 +5640,7 @@ namespace ZLib.Data
                 CastRange = 750f,
                 Delay = 260f,
                 MissileName = "talonrmisone",
-                EventTypes = new[] { EventType.Stealth },
+                EventTypes = new[] { EventType.Stealth, EventType.Initiator },
                 ExtraMissileNames = new[] { "talonrmistwo" },
                 MissileSpeed = int.MaxValue
             });
@@ -5685,7 +5685,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -5776,7 +5776,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 420f,
                 Delay = 300f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 1550
             });
 
@@ -5870,7 +5870,7 @@ namespace ZLib.Data
                 CastRange = 1000f,
                 Radius = 340f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 1600
             });
 
@@ -5994,7 +5994,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 0f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 500
             });
 
@@ -6393,7 +6393,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 1575f,
                 Delay = 0f,
-                EventTypes = new[] { EventType.Danger },
+                EventTypes = new[] { EventType.Danger, EventType.Initiator },
                 MissileSpeed = 1500
             });
 
@@ -6437,7 +6437,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 CastRange = 800f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
+                EventTypes = new[] { EventType.Danger, EventType.CrowdControl, EventType.Initiator },
                 MissileSpeed = 1400
             });
 
