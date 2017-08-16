@@ -15,7 +15,6 @@ namespace ZLib.Base
     #region
 
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using Aimtec;
@@ -32,7 +31,7 @@ namespace ZLib.Base
     {
         /// <summary>
         ///     The Non-important event type
-        /// </summary> 
+        /// </summary>
         None,
 
         /// <summary>
@@ -102,6 +101,50 @@ namespace ZLib.Base
     }
 
     /// <summary>
+    ///     Enum CollisionObjectType
+    /// </summary>
+    public enum CollisionObjectType
+    {
+        /// <summary>
+        ///     The ally heroes
+        /// </summary>
+        AllyHeroes,
+
+        /// <summary>
+        ///     The enemy heroes
+        /// </summary>
+        EnemyHeroes,
+
+        /// <summary>
+        ///     The ally minions
+        /// </summary>
+        AllyMinions,
+
+        /// <summary>
+        ///     The enemy minions
+        /// </summary>
+        EnemyMinions,
+
+        /// <summary>
+        ///     The terrain
+        /// </summary>
+        Terrain
+    }
+
+    public enum CastType
+    {
+        Linear,
+        MissileLinear,
+        LinearAoE,
+        MissileLinearAoE,
+        Proximity,
+        Targeted,
+        Circlular,
+        Sector,
+    }
+
+
+    /// <summary>
     ///     Enum ProcessSpellType
     /// </summary>
     public enum ProcessSpellType
@@ -156,6 +199,8 @@ namespace ZLib.Base
 
     internal class Helpers
     {
+        #region Internal Methods and Operators
+
         /// <summary>
         ///     Returns if the matched hero is valid and in the current game.
         /// </summary>
@@ -206,7 +251,7 @@ namespace ZLib.Base
         /// <param name="type">The type.</param>
         internal static void ExportSpellData(Gamedata data, string type = null)
         {
-            var path = 
+            var path =
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs", "ZZephyr",
                     $"zzephyr_{data.ChampionName.ToLower()}.txt");
 
@@ -266,5 +311,7 @@ namespace ZLib.Base
         {
             return unit.Name.StartsWith("Sru_Crab");
         }
+
+        #endregion
     }
 }

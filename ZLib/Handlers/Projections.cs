@@ -128,9 +128,9 @@
 
         #endregion
 
-        #region Private Methods and Operators
+        #region Internal Methods and Operators
 
-        private static void MissileClient_OnSpellMissileCreate(GameObject sender)
+        internal static void MissileClient_OnSpellMissileCreate(GameObject sender)
         {
             try
             {
@@ -153,21 +153,18 @@
                         return;
                     }
 
-                    // set line width
-                    if (data.Radius == 0f)
+                    if (data.Radius < 1f)
                     {
                         data.Radius = missile.SpellData.LineWidth;
                     }
 
                     var direction = (endPos - startPos).Normalized();
-
                     if (startPos.Distance(endPos) > data.CastRange)
                     {
                         endPos = startPos + direction * data.CastRange;
                     }
 
-                    if (startPos.Distance(endPos) < data.CastRange
-                        && data.FixedRange)
+                    if (startPos.Distance(endPos) < data.CastRange && data.FixedRange)
                     {
                         endPos = startPos + direction * data.CastRange;
                     }
@@ -183,11 +180,11 @@
 
                         // get the evade time
                         var evadetime = (int) (1000 *
-                            (data.Radius - projdist + hero.Instance.BoundingRadius) / hero.Instance.MoveSpeed);
+                            (data.Radius - projdist + hero.Instance.BoundingRadius)
+                            / hero.Instance.MoveSpeed);
 
                         // check if hero on segment
-                        if (proj.IsOnSegment
-                            && projdist <= data.Radius + hero.Instance.BoundingRadius + 35)
+                        if (proj.IsOnSegment && projdist <= data.Radius + hero.Instance.BoundingRadius + 35)
                         {
                             if (data.CastRange > 10000)
                             {
@@ -219,11 +216,10 @@
             }
         }
 
-        private static void Obj_AI_Base_OnUnitSpellCast(Obj_AI_Base sender, Obj_AI_BaseMissileClientDataEventArgs args)
+        internal static void Obj_AI_Base_OnUnitSpellCast(Obj_AI_Base sender, Obj_AI_BaseMissileClientDataEventArgs args)
         {
             var aiHero = sender as Obj_AI_Hero;
-            if (aiHero != null
-                && ZLib.Menu["dumpdata"].As<MenuBool>().Enabled)
+            if (aiHero != null && ZLib.Menu["dumpdata"].As<MenuBool>().Enabled)
             {
                 var clientdata = new Gamedata
                 {
@@ -252,224 +248,253 @@
             {
                 #region Hero
 
-                var objAiHero = sender as Obj_AI_Hero;
-                if (objAiHero != null)
+                var attacker = sender as Obj_AI_Hero;
+                if (attacker != null)
                 {
-                    var attacker = objAiHero;
-
-                    if (attacker.IsValid && attacker is Obj_AI_Hero)
+                    foreach (var hero in ZLib.GetUnits())
                     {
-                        foreach (var hero in ZLib.GetUnits())
+                        #region auto attack
+
+                        if (args.SpellData.Name.ToLower().Contains("attack") && args.Target != null)
                         {
-                            #region auto attack
-
-                            if (args.SpellData.Name.ToLower().Contains("attack") && args.Target != null)
+                            if (args.Target.NetworkId == hero.Instance.NetworkId)
                             {
-                                if (args.Target.NetworkId == hero.Instance.NetworkId)
+                                float dmg = 0;
+
+                                dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance), 0);
+
+                                if (attacker.HasBuff("sheen"))
+                                    dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance) +
+                                        attacker.GetCustomDamage("sheen", hero.Instance), 0);
+
+                                if (attacker.HasBuff("lichbane"))
+                                    dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance) +
+                                        attacker.GetCustomDamage("lichbane", hero.Instance), 0);
+
+                                if (attacker.HasBuff("itemstatikshankcharge")
+                                    && attacker.GetBuff("itemstatikshankcharge").Count == 100)
+                                    dmg += new[] { 62, 120, 200, 200 }[Math.Min(18, attacker.Level) / 6];
+
+                                if (args.SpellData.Name.ToLower().Contains("crit"))
                                 {
-                                    float dmg = 0;
-
                                     dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance), 0);
-
-                                    if (attacker.HasBuff("sheen"))
-                                        dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance) +
-                                            attacker.GetCustomDamage("sheen", hero.Instance), 0);
-
-                                    if (attacker.HasBuff("lichbane"))
-                                        dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance) +
-                                            attacker.GetCustomDamage("lichbane", hero.Instance), 0);
-
-                                    if (attacker.HasBuff("itemstatikshankcharge")
-                                        && attacker.GetBuff("itemstatikshankcharge").Count == 100)
-                                        dmg += new[] { 62, 120, 200, 200 }[Math.Min(18, attacker.Level) / 6];
-
-                                    if (args.SpellData.Name.ToLower().Contains("crit"))
-                                    {
-                                        dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance), 0);
-                                    }
-
-                                    EmulateDamage(attacker, hero, new Gamedata { SpellName = args.SpellData.Name },
-                                        EventType.AutoAttack, "enemy.autoattack", dmg);
                                 }
+
+                                EmulateDamage(attacker, hero, new Gamedata { SpellName = args.SpellData.Name },
+                                    EventType.AutoAttack, "enemy.autoattack", dmg);
+                            }
+                        }
+
+                        #endregion
+
+                        var data = ZLib.CachedSpells.Find(x => x.SpellName.ToLower() == args.SpellData.Name.ToLower());
+                        if (data == null)
+                        {
+                            continue;
+                        }
+
+                        #region self/selfaoe
+
+                        if (data.CastType == CastType.Proximity)
+                        {
+                            if (data.Radius < 1f)
+                            {
+                                data.Radius = args.SpellData.CastRadiusSecondary > 0
+                                    ? args.SpellData.CastRadiusSecondary
+                                    : args.SpellData.CastRadius;
                             }
 
-                            #endregion
+                            GameObject fromobj = null;
 
-                            var data = ZLib.CachedSpells.Find(x => x.SpellName.ToLower() == args.SpellData.Name.ToLower());
-                            if (data == null)
+                            if (data.FromObject != null)
+                            {
+                                fromobj =
+                                    ObjectManager.Get<GameObject>()
+                                        .FirstOrDefault(
+                                            x =>
+                                                data.FromObject != null && // todo: actually get team
+                                                data.FromObject.Any(y => x.Name.Contains(y)));
+                            }
+
+                            var correctpos = fromobj?.Position ?? attacker.ServerPosition;
+                            if (hero.Instance.Distance(correctpos) <= data.CastRange + 125)
+                            {
+                                if (!data.SpellName.Equals("kalistaexpungewrapper") || hero.Instance.HasBuff("kalistaexpungemarker"))
+                                {
+                                    EmulateDamage(attacker, hero, data, EventType.Spell, "spell.proximity");
+                                }
+                            }
+                        }
+
+                        #endregion
+
+                        #region skillshot line
+
+                        if (data.CastType.ToString().Contains("Linear"))
+                        {
+                            GameObject fromobj = null;
+
+                            if (data.FromObject != null)
+                            {
+                                fromobj =
+                                    ObjectManager.Get<GameObject>()
+                                        .FirstOrDefault(
+                                            x =>
+                                                data.FromObject != null && // todo: actually get team
+                                                data.FromObject.Any(y => x.Name.Contains(y)));
+                            }
+
+                            if (args.SpellData.LineWidth > 0 && data.Radius < 1f)
+                            {
+                                data.Radius = args.SpellData.LineWidth;
+                            }
+
+                            var startpos = fromobj?.Position ?? attacker.ServerPosition;
+                            if (hero.Instance.Distance(startpos) > data.CastRange + 35)
                             {
                                 continue;
                             }
 
-                            #region self/selfaoe
-
-                            if (args.SpellData.TargettingType == (ulong) ProcessSpellType.Self
-                                || args.SpellData.TargettingType == (ulong) ProcessSpellType.UnitAndAoE
-                                || args.SpellData.TargettingType == (ulong) ProcessSpellType.SelfAndUnit)
+                            if ((data.SpellName == "azirq" || data.SpellName == "azire") && fromobj == null)
                             {
-                                if (data.Radius == 0f)
-                                    data.Radius = args.SpellData.CastRadiusSecondary != 0
-                                        ? args.SpellData.CastRadiusSecondary
-                                        : args.SpellData.CastRadius;
-
-                                GameObject fromobj = null;
-
-                                if (data.FromObject != null)
-                                {
-                                    fromobj =
-                                        ObjectManager.Get<GameObject>()
-                                            .FirstOrDefault(
-                                                x =>
-                                                    data.FromObject != null && // todo: actually get team
-                                                    data.FromObject.Any(y => x.Name.Contains(y)));
-                                }
-
-                                var correctpos = fromobj?.Position ?? attacker.ServerPosition;
-
-                                if (hero.Instance.Distance(correctpos) <= data.CastRange + 125)
-                                {
-                                    if (data.SpellName == "kalistaexpungewrapper"
-                                        && !hero.Instance.HasBuff("kalistaexpungemarker"))
-                                    {
-                                        continue;
-                                    }
-
-                                    EmulateDamage(attacker, hero, data, EventType.Spell, "enemy.selfaoe");
-                                }
+                                continue;
                             }
 
-                            #endregion
+                            var distance = (int)
+                            (1000 * (startpos.Distance(hero.Instance.ServerPosition)
+                                / data.MissileSpeed));
 
-                            #region skillshot
+                            var endtime = data.Delay + distance - Game.Ping / 2f;
+                            var direction = (args.End.To2D() - startpos.To2D()).Normalized();
+                            var endpos = startpos.To2D() + direction * startpos.To2D().Distance(args.End.To2D());
 
-                            if (args.SpellData.TargettingType == (ulong) ProcessSpellType.LocationCone
-                                || args.SpellData.TargettingType == (ulong) ProcessSpellType.LocationLine
-                                || args.SpellData.TargettingType == (ulong) ProcessSpellType.LocationLineMissile
-                                || args.SpellData.TargettingType == (ulong) ProcessSpellType.LocationCircle)
+                            if (startpos.To2D().Distance(endpos) > data.CastRange)
                             {
-                                GameObject fromobj = null;
+                                endpos = startpos.To2D() + direction * data.CastRange;
+                            }
 
-                                if (data.FromObject != null)
+                            if (startpos.To2D().Distance(endpos) < data.CastRange && data.FixedRange)
+                            {
+                                endpos = startpos.To2D() + direction * data.CastRange;
+                            }
+
+                            var proj = hero.Instance.ServerPosition.To2D().ProjectOn(startpos.To2D(), endpos);
+                            var projdist = hero.Instance.ServerPosition.To2D().Distance(proj.SegmentPoint);
+                            var evadetime = (int) (1000 * (data.Radius - projdist + hero.Instance.BoundingRadius)
+                                / hero.Instance.MoveSpeed);
+
+                            if (proj.IsOnSegment && projdist <= data.Radius + hero.Instance.BoundingRadius + 35)
+                            {
+                                if (data.CastRange > 9000 || data.Global)
                                 {
-                                    fromobj =
-                                        ObjectManager.Get<GameObject>()
-                                            .FirstOrDefault(
-                                                x =>
-                                                    data.FromObject != null && // todo: actually get team
-                                                    data.FromObject.Any(y => x.Name.Contains(y)));
-                                }
-
-                                var isline = args.SpellData.TargettingType == (ulong) ProcessSpellType.LocationCone
-                                    ||
-                                    args.SpellData.LineWidth > 0;
-
-                                if (!(args.SpellData.LineWidth > 0)
-                                    && data.Radius == 0f)
-                                {
-                                    data.Radius = args.SpellData.CastRadiusSecondary != 0
-                                        ? args.SpellData.CastRadiusSecondary
-                                        : args.SpellData.CastRadius;
-                                }
-
-                                var startpos = fromobj?.Position ?? attacker.ServerPosition;
-
-                                if (hero.Instance.Distance(startpos) > data.CastRange + 35)
-                                {
-                                    continue;
-                                }
-
-                                if ((data.SpellName == "azirq" || data.SpellName == "azire")
-                                    && fromobj == null)
-                                {
-                                    continue;
-                                }
-
-                                var distance = (int) (1000 * (startpos.Distance(hero.Instance.ServerPosition)
-                                    / data.MissileSpeed));
-                                var endtime = data.Delay + distance - Game.Ping / 2f;
-
-                                var iscone = args.SpellData.TargettingType
-                                    == (ulong) ProcessSpellType.LocationCone;
-                                var direction = (args.End.To2D() - startpos.To2D()).Normalized();
-                                var endpos = startpos.To2D() + direction * startpos.To2D().Distance(args.End.To2D());
-
-                                if (startpos.To2D().Distance(endpos) > data.CastRange)
-                                {
-                                    endpos = startpos.To2D() + direction * data.CastRange;
-                                }
-
-                                if (startpos.To2D().Distance(endpos) < data.CastRange
-                                    && data.FixedRange)
-                                {
-                                    endpos = startpos.To2D() + direction * data.CastRange;
-                                }
-
-                                var proj = hero.Instance.ServerPosition.To2D().ProjectOn(startpos.To2D(), endpos);
-                                var projdist = hero.Instance.ServerPosition.To2D().Distance(proj.SegmentPoint);
-
-                                var evadetime = 0;
-
-                                if (isline)
-                                    evadetime =
-                                        (int) (1000 * (data.Radius - projdist + hero.Instance.BoundingRadius)
-                                            / hero.Instance.MoveSpeed);
-
-                                if (!isline || iscone)
-                                    evadetime =
-                                        (int) (1000 * (data.Radius - hero.Instance.Distance(startpos) + hero.Instance.BoundingRadius)
-                                            / hero.Instance.MoveSpeed);
-
-                                if (proj.IsOnSegment && projdist <= data.Radius + hero.Instance.BoundingRadius + 35 && isline
-                                    || (iscone || !isline) && hero.Instance.Distance(endpos)
-                                    <= data.Radius + hero.Instance.BoundingRadius + 35)
-                                {
-                                    if (data.CastRange > 10000
-                                        && hero.Instance.NetworkId == Player.NetworkId)
+                                    if (hero.Instance.NetworkId == Player.NetworkId)
                                     {
                                         if (evadetime < endtime)
                                         {
                                             continue;
                                         }
                                     }
-
-                                    EmulateDamage(attacker, hero, data, EventType.Spell, "enemy.skillshot", 0f, (int) endtime);
                                 }
+
+                                if (data.CastType == CastType.LinearAoE || data.CastType == CastType.MissileLinearAoE)
+                                {
+                                    if (hero.Instance.Distance(endpos) <= hero.Instance.BoundingRadius + 235)
+                                    {
+                                        EmulateDamage(attacker, hero, data, EventType.Spell, "spell.linear.explosion");
+                                    }
+                                }
+
+                                EmulateDamage(attacker, hero, data, EventType.Spell, "spell.linear", 0f, (int) endtime);
                             }
-
-                            #endregion
-
-                            #region unit type
-
-                            if (args.SpellData.TargettingType == (ulong) ProcessSpellType.Targeted)
-                            {
-                                if (args.Target == null
-                                    || args.Target.Type != GameObjectType.obj_AI_Hero)
-                                {
-                                    continue;
-                                }
-
-                                // check if is targeteting the hero on our table
-                                if (hero.Instance.NetworkId != args.Target.NetworkId)
-                                {
-                                    continue;
-                                }
-
-                                // target spell dectection
-                                if (hero.Instance.Distance(attacker.ServerPosition) > data.CastRange + 100)
-                                {
-                                    continue;
-                                }
-
-                                var distance =
-                                    (int) (1000 * (attacker.Distance(hero.Instance.ServerPosition) / data.MissileSpeed));
-
-                                var endtime = data.Delay + distance - Game.Ping / 2f;
-
-                                EmulateDamage(attacker, hero, data, EventType.Spell, "enemy.targetspell", 0f, (int) endtime);
-                            }
-
-                            #endregion
                         }
+
+                        #endregion
+
+                        #region skillshot circle/cone
+
+                        if (data.CastType == CastType.Circlular || data.CastType == CastType.Sector)
+                        {
+                            GameObject fromobj = null;
+
+                            if (data.FromObject != null)
+                            {
+                                fromobj =
+                                    ObjectManager.Get<GameObject>()
+                                        .FirstOrDefault(
+                                            x =>
+                                                data.FromObject != null && // todo: actually get team
+                                                data.FromObject.Any(y => x.Name.Contains(y)));
+                            }
+
+                            if (data.Radius < 1f)
+                            {
+                                data.Radius = args.SpellData.CastRadiusSecondary > 0
+                                    ? args.SpellData.CastRadiusSecondary
+                                    : args.SpellData.CastRadius;
+                            }
+
+                            var startpos = fromobj?.Position ?? attacker.ServerPosition;
+                            if (hero.Instance.Distance(startpos) > data.CastRange + 35)
+                            {
+                                continue;
+                            }
+
+                            if ((data.SpellName == "azirq" || data.SpellName == "azire") && fromobj == null)
+                            {
+                                continue;
+                            }
+
+                            var distance = (int) (1000 *
+                                (startpos.Distance(hero.Instance.ServerPosition)
+                                    / data.MissileSpeed));
+
+                            var endtime = data.Delay + distance - Game.Ping / 2f;
+                            var direction = (args.End.To2D() - startpos.To2D()).Normalized();
+                            var endpos = startpos.To2D() + direction * startpos.To2D().Distance(args.End.To2D());
+
+                            if (startpos.To2D().Distance(endpos) > data.CastRange)
+                            {
+                                endpos = startpos.To2D() + direction * data.CastRange;
+                            }
+
+                            var evadetime = (int) (1000 *
+                                (data.Radius - hero.Instance.Distance(startpos) + hero.Instance.BoundingRadius)
+                                / hero.Instance.MoveSpeed);
+
+                            if (hero.Instance.Distance(endpos) <= data.Radius + hero.Instance.BoundingRadius + 35)
+                            {
+                                if (evadetime > endtime)
+                                {
+                                    EmulateDamage(attacker, hero, data, EventType.Spell, "spell.circular", 0f, (int) endtime);
+                                }
+                            }
+                        }
+
+                        #endregion
+
+                        #region unit type
+
+                        if (data.CastType == CastType.Targeted)
+                        {
+                            if (args.Target == null || args.Target.Type != GameObjectType.obj_AI_Hero)
+                            {
+                                continue;
+                            }
+
+                            if (hero.Instance.NetworkId == args.Target.NetworkId)
+                            {
+                                if (hero.Instance.Distance(attacker.ServerPosition) <= data.CastRange + 100)
+                                {
+                                    var distance =
+                                        (int) (1000 * (attacker.Distance(hero.Instance.ServerPosition) / data.MissileSpeed));
+
+                                    var endtime = data.Delay + distance - Game.Ping / 2f;
+                                    EmulateDamage(attacker, hero, data, EventType.Spell, "spell.targeted", 0f, (int) endtime);
+                                }
+                            }
+                        }
+
+                        #endregion
                     }
                 }
 
@@ -724,15 +749,12 @@
             }
         }
 
-        private static void Obj_AI_Base_OnStealth(Obj_AI_Base sender, Obj_AI_BaseMissileClientDataEventArgs args)
+        internal static void Obj_AI_Base_OnStealth(Obj_AI_Base sender, Obj_AI_BaseMissileClientDataEventArgs args)
         {
             #region Stealth
 
             var attacker = sender as Obj_AI_Hero;
-
-            if (attacker == null
-                || attacker.IsAlly
-                || !attacker.IsValid)
+            if (attacker == null || attacker.IsAlly || !attacker.IsValid)
             {
                 return;
             }
@@ -751,10 +773,6 @@
 
             #endregion
         }
-
-        #endregion
-
-        #region Internal Methods and Operators
 
         internal static void Init()
         {
@@ -831,8 +849,7 @@
                 hpred.PredictedDmg = (float) Math.Round(idmg);
             }
 
-            if (dmgType != EventType.Buff
-                && dmgType != EventType.Troy)
+            if (dmgType != EventType.Buff && dmgType != EventType.Troy)
             {
                 // check duplicates (missiles and process spell)
                 if (ZLib.DamageCollection.Select(entry => entry.Value).Any(o => data != null && o.Name == data.SpellName))
@@ -1047,7 +1064,6 @@
                 else
                 {
                     // if this block is reached the hero is dead
-
                     var deadHero = ZLib.GetUnits().FirstOrDefault(x => x.Instance.NetworkId == hpi.Target.NetworkId);
                     if (deadHero != null)
                     {

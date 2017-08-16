@@ -33,8 +33,7 @@ namespace ZLib.Handlers
 
             foreach (var troy in Gametroy.Troys)
             {
-                if (troy.Included
-                    && obj.Name.ToLower().Contains(troy.Name.ToLower()))
+                if (troy.Included && obj.Name.ToLower().Contains(troy.Name.ToLower()))
                 {
                     troy.Obj = null;
                     troy.Start = 0;
@@ -72,8 +71,7 @@ namespace ZLib.Handlers
                     if (troy == null)
                         continue;
 
-                    if (!troy.Obj.IsVisible
-                        || !troy.Obj.IsValid)
+                    if (!troy.Obj.IsVisible || !troy.Obj.IsValid)
                     {
                         continue;
                     }
