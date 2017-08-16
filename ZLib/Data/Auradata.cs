@@ -1455,6 +1455,122 @@ namespace ZLib.Data
 
             ZLib.AuraList.Add(new Auradata
             {
+                Champion = "Rakan",
+                Name = "rakanr",
+                Evade = false,
+                DoT = true,
+                Cleanse = false,
+                CleanseTimer = 0,
+                EvadeTimer = 0,
+                Slot = SpellSlot.R,
+                Reverse = true,
+                Radius = 200f,
+                Interval = 0.8
+            });
+
+            ZLib.AuraList.Add(new Auradata
+            {
+                Champion = "Camille",
+                Name = "camillewconeslashcharge",
+                Evade = false,
+                DoT = true,
+                Cleanse = false,
+                CleanseTimer = 0,
+                EvadeTimer = 0,
+                Slot = SpellSlot.W,
+                Reverse = true,
+                Radius = 250f,
+                Interval = 0.5
+            });
+
+            ZLib.AuraList.Add(new Auradata
+            {
+                Champion = "Camille",
+                Name = "camilleq",
+                Evade = false,
+                DoT = true,
+                Cleanse = false,
+                CleanseTimer = 0,
+                EvadeTimer = 0,
+                Slot = SpellSlot.Q,
+                Reverse = true,
+                Radius = 250f,
+                Interval = 0.5
+            });
+
+            ZLib.AuraList.Add(new Auradata
+            {
+                Champion = "Camille",
+                Name = "camilleqprimingcomplete",
+                Evade = false,
+                DoT = true,
+                Cleanse = false,
+                CleanseTimer = 0,
+                EvadeTimer = 0,
+                Slot = SpellSlot.Q,
+                Reverse = true,
+                Radius = 250f,
+                Interval = 0.5
+            });
+
+            ZLib.AuraList.Add(new Auradata
+            {
+                Champion = "Galio",
+                Name = "galiow",
+                Evade = false,
+                DoT = true,
+                CleanseTimer = 0,
+                EvadeTimer = 0,
+                Slot = SpellSlot.W,
+                Reverse = true,
+                Radius = 250f,
+                Interval = 0.5
+            });
+
+            ZLib.AuraList.Add(new Auradata
+            {
+                Champion = "Galio",
+                Name = "galiowbuff",
+                Evade = false,
+                DoT = true,
+                CleanseTimer = 0,
+                EvadeTimer = 0,
+                Slot = SpellSlot.W,
+                Reverse = true,
+                Radius = 250f,
+                Interval = 0.5
+            });
+
+            ZLib.AuraList.Add(new Auradata
+            {
+                Champion = "Galio",
+                Name = "galioemove",
+                Evade = false,
+                DoT = true,
+                CleanseTimer = 0,
+                EvadeTimer = 0,
+                Slot = SpellSlot.E,
+                Reverse = true,
+                Radius = 100f,
+                Interval = 0.5
+            });
+
+            ZLib.AuraList.Add(new Auradata
+            {
+                Champion = "Galio",
+                Name = "galiorallybuff",
+                Evade = false,
+                DoT = true,
+                CleanseTimer = 0,
+                EvadeTimer = 0,
+                Slot = SpellSlot.R,
+                Reverse = true,
+                Radius = 325f,
+                Interval = 1.0
+            });
+
+            ZLib.AuraList.Add(new Auradata
+            {
                 Champion = "Diana",
                 Name = "dianaorbs",
                 Evade = false,

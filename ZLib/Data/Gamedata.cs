@@ -268,7 +268,7 @@ namespace ZLib.Data
                 ChampionName = "ahri",
                 Slot = SpellSlot.E,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions,  CollisionObjectType.EnemyHeroes },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 975f,
                 Radius = 60f,
@@ -398,7 +398,7 @@ namespace ZLib.Data
                 ChampionName = "amumu",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes  },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1100f,
                 Radius = 80f,
@@ -967,6 +967,71 @@ namespace ZLib.Data
 
             ZLib.Spells.Add(new Gamedata
             {
+                SpellName = "camilleq",
+                ChampionName = "camille",
+                Slot = SpellSlot.Q,
+                CastType = CastType.Proximity,
+                CastRange = 325f,
+                Radius = 325f,
+                Delay = 250f,
+                EventTypes = new EventType[] { },
+                MissileSpeed = 4800
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "camillew",
+                ChampionName = "camille",
+                Slot = SpellSlot.W,
+                CastType = CastType.Proximity,
+                CastRange = 325f,
+                Radius = 325f,
+                Delay = 500f,
+                EventTypes = new EventType[] { },
+                MissileSpeed = 2696
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "camillee",
+                ChampionName = "camille",
+                Slot = SpellSlot.E,
+                CastType = CastType.MissileLinearAoE,
+                CastRange = 1100f,
+                Radius = 35f,
+                Delay = 250f,
+                EventTypes = new EventType[] { EventType.Initiator },
+                MissileName = "camilleemissile",
+                MissileSpeed = 1350
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "camilleedash2",
+                ChampionName = "camille",
+                Slot = SpellSlot.E,
+                CastType = CastType.LinearAoE,
+                CastRange = 800f,
+                Radius = 165f,
+                Delay = 250f,
+                EventTypes = new EventType[] { EventType.Initiator },
+                MissileSpeed = 1350
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "camiller",
+                ChampionName = "camille",
+                Slot = SpellSlot.R,
+                CastType = CastType.Targeted,
+                CastRange = 475f,
+                Delay = 250f,
+                EventTypes = new EventType[] { EventType.Initiator },
+                MissileSpeed = 11200
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
                 SpellName = "caitlynpiltoverpeacemaker",
                 ChampionName = "caitlyn",
                 Slot = SpellSlot.Q,
@@ -1339,7 +1404,7 @@ namespace ZLib.Data
                 SpellName = "dravendoubleshot",
                 ChampionName = "draven",
                 Slot = SpellSlot.E,
-                CollidesWith = new [] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 CastType = CastType.MissileLinear,
                 FixedRange = true,
                 CastRange = 1050f,
@@ -1368,7 +1433,7 @@ namespace ZLib.Data
                 SpellName = "infectedcleavermissilecast",
                 ChampionName = "drmundo",
                 Slot = SpellSlot.Q,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 CastType = CastType.MissileLinear,
                 FixedRange = true,
                 CastRange = 1000f,
@@ -1508,7 +1573,7 @@ namespace ZLib.Data
                 SpellName = "elisehumane",
                 ChampionName = "elise",
                 Slot = SpellSlot.E,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 CastType = CastType.MissileLinear,
                 FixedRange = true,
                 CastRange = 1075f,
@@ -1627,7 +1692,7 @@ namespace ZLib.Data
                 ChampionName = "ezreal",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1150f,
                 Delay = 250f,
@@ -1864,58 +1929,79 @@ namespace ZLib.Data
 
             ZLib.Spells.Add(new Gamedata
             {
-                SpellName = "galioresolutesmite",
+                SpellName = "galioq",
                 ChampionName = "galio",
                 Slot = SpellSlot.Q,
-                CastType = CastType.LinearAoE,
-                CastRange = 1040f,
+                CastType = CastType.MissileLinearAoE,
+                CastRange = 1200f,
+                Radius = 60,
                 Delay = 250f,
-                EventTypes = new[] { EventType.CrowdControl },
-                MissileName = "galioresolutesmite",
-                MissileSpeed = 1200
-            });
-
-            ZLib.Spells.Add(new Gamedata
-            {
-                SpellName = "galiobulwark",
-                ChampionName = "galio",
-                Slot = SpellSlot.W,
-                CastType = CastType.Proximity,
-                CastRange = 0f,
-                Delay = 250f,
-                EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
-            });
-
-            ZLib.Spells.Add(new Gamedata
-            {
-                SpellName = "galiorighteousgust",
-                ChampionName = "galio",
-                Slot = SpellSlot.E,
-                CastType = CastType.Linear,
-                FixedRange = true,
-                CastRange = 1280f,
-                Delay = 250f,
-                EventTypes = new EventType[] { },
-                MissileName = "galiorighteousgust",
+                EventTypes = new EventType[] {  },
+                MissileName = "galioqmissile",
                 MissileSpeed = 1300
             });
 
+
             ZLib.Spells.Add(new Gamedata
             {
-                SpellName = "galioidolofdurand",
+                SpellName = "galioqsuper",
+                ChampionName = "galio",
+                Slot = SpellSlot.Q,
+                CastType = CastType.Circlular,
+                CastRange = 200f,
+                Radius = 200,
+                Delay = 250f,
+                EventTypes = new EventType[] { },
+                MissileSpeed = 4800
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "galiow",
+                ChampionName = "galio",
+                Slot = SpellSlot.W,
+                CastType = CastType.Proximity,
+                CastRange = 275f,
+                Radius = 275f,
+                Delay = 250f,
+                EventTypes = new EventType[] { EventType.CrowdControl, },
+                MissileSpeed = 4800
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "galiow2",
+                ChampionName = "galio",
+                Slot = SpellSlot.W,
+                CastType = CastType.Proximity,
+                CastRange = 275f,
+                Radius = 275f,
+                Delay = 250f,
+                EventTypes = new EventType[] { EventType.CrowdControl, },
+                MissileSpeed = 4800
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "galioe",
+                ChampionName = "galio",
+                Slot = SpellSlot.E,
+                CastType = CastType.LinearAoE,
+                CastRange = 950f,
+                Delay = 250f,
+                EventTypes = new EventType[] { },
+                MissileSpeed = 750
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "galior",
                 ChampionName = "galio",
                 Slot = SpellSlot.R,
-                CastType = CastType.Targeted,
-                CastRange = 600f,
+                CastType = CastType.Proximity,
+                CastRange = 0f,
                 Delay = 0f,
-                EventTypes =
-                    new[]
-                    {
-                        EventType.Danger, EventType.Ultimate,
-                        EventType.CrowdControl
-                    },
-                MissileName = "",
+                EventTypes = new [] { EventType.Initiator },
                 MissileSpeed = int.MaxValue
             });
 
@@ -2024,7 +2110,7 @@ namespace ZLib.Data
                 SpellName = "gnarbigq",
                 ChampionName = "gnar",
                 Slot = SpellSlot.Q,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 CastType = CastType.MissileLinear,
                 FixedRange = true,
                 CastRange = 1150f,
@@ -2158,7 +2244,7 @@ namespace ZLib.Data
                 ChampionName = "gragas",
                 Slot = SpellSlot.E,
                 CastType = CastType.Linear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 600f,
                 Delay = 200f,
@@ -2327,7 +2413,7 @@ namespace ZLib.Data
                 ChampionName = "heimerdinger",
                 Slot = SpellSlot.W,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1100,
                 Delay = 250f,
@@ -2455,7 +2541,7 @@ namespace ZLib.Data
                 ChampionName = "illaoi",
                 Slot = SpellSlot.E,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 950f,
                 Delay = 250f,
@@ -2482,7 +2568,7 @@ namespace ZLib.Data
                 ChampionName = "ivern",
                 Slot = SpellSlot.Q,
                 CastType = CastType.Linear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 Radius = 65f,
                 CastRange = 1100f,
                 Delay = 250f,
@@ -2672,7 +2758,7 @@ namespace ZLib.Data
                 ChampionName = "jayce",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1570f,
                 Delay = 250f,
@@ -2827,7 +2913,7 @@ namespace ZLib.Data
                 ChampionName = "jinx",
                 Slot = SpellSlot.W,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 Radius = 60f,
                 FixedRange = true,
                 CastRange = 1500f,
@@ -2872,7 +2958,7 @@ namespace ZLib.Data
                 SpellName = "karmaq",
                 ChampionName = "karma",
                 Slot = SpellSlot.Q,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 CastType = CastType.MissileLinearAoE,
                 FixedRange = true,
                 CastRange = 1050f,
@@ -3117,13 +3203,67 @@ namespace ZLib.Data
                 MissileSpeed = int.MaxValue
             });
 
+            #region Kayn
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "kaynq",
+                ChampionName = "kayn",
+                Slot = SpellSlot.Q,
+                CastType = CastType.LinearAoE,
+                FixedRange = true,
+                CastRange = 345f,
+                Delay = 250f,
+                EventTypes = new EventType[] { },
+                MissileSpeed = 1000
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "kaynw",
+                ChampionName = "kayn",
+                Slot = SpellSlot.W,
+                CastType = CastType.Linear,
+                FixedRange = true,
+                CastRange = 700f,
+                Delay = 500f,
+                EventTypes = new EventType[] { },
+                MissileSpeed = int.MaxValue
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "kaynr",
+                ChampionName = "kayn",
+                Slot = SpellSlot.R,
+                CastType = CastType.Targeted,
+                CastRange = 550f,
+                Delay = 250f,
+                EventTypes = new [] { EventType.Danger, EventType.Initiator },
+                MissileSpeed = 1450
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "kaynrjumpout",
+                ChampionName = "kayn",
+                Slot = SpellSlot.R,
+                CastType = CastType.Proximity,
+                CastRange = 450f,
+                Delay = 250f,
+                EventTypes = new[] { EventType.Danger, EventType.Initiator },
+                MissileSpeed = 4800
+            });
+
+            #endregion
+
             ZLib.Spells.Add(new Gamedata
             {
                 SpellName = "kennenshurikenhurlmissile1",
                 ChampionName = "kennen",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1175f,
                 Delay = 250f,
@@ -3198,7 +3338,7 @@ namespace ZLib.Data
                 ChampionName = "khazix",
                 Slot = SpellSlot.W,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1000f,
                 Delay = 250f,
@@ -3213,7 +3353,7 @@ namespace ZLib.Data
                 ChampionName = "khazix",
                 Slot = SpellSlot.W,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1000f,
                 Delay = 250f,
@@ -3342,7 +3482,7 @@ namespace ZLib.Data
                 ChampionName = "kled",
                 Slot = SpellSlot.E,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 800f,
                 Radius = 124f,
@@ -3370,7 +3510,7 @@ namespace ZLib.Data
                 ChampionName = "kogmaw",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1300f,
                 Delay = 250f,
@@ -3461,7 +3601,7 @@ namespace ZLib.Data
                 ChampionName = "leblanc",
                 Slot = SpellSlot.E,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 925f,
                 Delay = 250f,
@@ -3513,7 +3653,7 @@ namespace ZLib.Data
                 ChampionName = "leblanc",
                 Slot = SpellSlot.R,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 925f,
                 Delay = 250f,
@@ -3528,7 +3668,7 @@ namespace ZLib.Data
                 ChampionName = "leesin",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1000f,
                 Delay = 250f,
@@ -3741,7 +3881,7 @@ namespace ZLib.Data
                 ChampionName = "lucian",
                 Slot = SpellSlot.W,
                 CastType = CastType.MissileLinearAoE,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1050f,
                 Delay = 250f,
@@ -3768,7 +3908,7 @@ namespace ZLib.Data
                 ChampionName = "lucian",
                 Slot = SpellSlot.R,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1400f,
                 Radius = 110,
@@ -3902,7 +4042,7 @@ namespace ZLib.Data
                 SpellName = "kalistamysticshot",
                 ChampionName = "kalista",
                 Slot = SpellSlot.Q,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastType = CastType.MissileLinear,
                 CastRange = 1200f,
@@ -4326,7 +4466,7 @@ namespace ZLib.Data
                 SpellName = "darkbindingmissile",
                 ChampionName = "morgana",
                 Slot = SpellSlot.Q,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 CastType = CastType.MissileLinear,
                 FixedRange = true,
                 CastRange = 1175f,
@@ -4476,7 +4616,7 @@ namespace ZLib.Data
                 SpellName = "nautilusanchordrag",
                 ChampionName = "nautilus",
                 Slot = SpellSlot.Q,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 CastType = CastType.Linear,
                 FixedRange = true,
                 CastRange = 1080f,
@@ -4527,7 +4667,7 @@ namespace ZLib.Data
                 SpellName = "javelintoss",
                 ChampionName = "nidalee",
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 Slot = SpellSlot.Q,
                 FixedRange = true,
                 CastRange = 1500f,
@@ -4951,7 +5091,7 @@ namespace ZLib.Data
                 ChampionName = "quinn",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinearAoE,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1050f,
                 Delay = 250f,
@@ -5007,6 +5147,85 @@ namespace ZLib.Data
                 Delay = 0f,
                 EventTypes = new EventType[] { },
                 MissileSpeed = int.MaxValue
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "rakanq",
+                ChampionName = "rakan",
+                Slot = SpellSlot.Q,
+                CastType = CastType.MissileLinearAoE,
+                CastRange = 900f,
+                Radius = 65f,
+                Delay = 250f,
+                EventTypes = new EventType[] {  },
+                MissileName = "rakanqmis",
+                MissileSpeed = 1800
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "rakanw",
+                ChampionName = "rakan",
+                Slot = SpellSlot.W,
+                CastType = CastType.Circlular,
+                CastRange = 650f,
+                Radius = 285f,
+                Delay = 250f,
+                EventTypes = new [] { EventType.CrowdControl },
+                MissileSpeed = 1425
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "rakanwcast",
+                ChampionName = "rakan",
+                Slot = SpellSlot.W,
+                CastType = CastType.Proximity,
+                CastRange = 285f,
+                Radius = 285f,
+                Delay = 250f,
+                EventTypes = new[] { EventType.CrowdControl },
+                MissileSpeed = 4800
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "rakane",
+                ChampionName = "rakan",
+                Slot = SpellSlot.E,
+                CastType = CastType.Proximity,
+                CastRange = 210f,
+                Radius = 210f,
+                Delay = 250f,
+                EventTypes = new EventType[] { },
+                MissileSpeed = 3430
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "rakanecast",
+                ChampionName = "rakan",
+                Slot = SpellSlot.E,
+                CastType = CastType.Proximity,
+                CastRange = 210f,
+                Radius = 210f,
+                Delay = 250f,
+                EventTypes = new EventType[] { },
+                MissileSpeed = 3430
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "rakanr",
+                ChampionName = "rakan",
+                Slot = SpellSlot.R,
+                CastType = CastType.Proximity,
+                CastRange = 210f,
+                Radius = 210f,
+                Delay = 250f,
+                EventTypes = new EventType[] { EventType.Initiator },
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5149,7 +5368,7 @@ namespace ZLib.Data
                 ChampionName = "rengar",
                 Slot = SpellSlot.E,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1000f,
                 Delay = 250f,
@@ -5190,7 +5409,7 @@ namespace ZLib.Data
                 ChampionName = "reksai",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 CastRange = 1650f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
@@ -5353,7 +5572,7 @@ namespace ZLib.Data
                 ChampionName = "rumble",
                 Slot = SpellSlot.E,
                 CastType = CastType.Linear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 850f,
                 Delay = 250f,
@@ -5380,7 +5599,7 @@ namespace ZLib.Data
                 ChampionName = "ryze",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 925f,
                 Delay = 250f,
@@ -6087,7 +6306,7 @@ namespace ZLib.Data
                 ChampionName = "tahmkench",
                 Slot = SpellSlot.Q,
                 CastType = CastType.Linear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 950f,
                 Delay = 250f,
@@ -6101,7 +6320,7 @@ namespace ZLib.Data
                 ChampionName = "taliyah",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 CastRange = 1000f,
                 Radius = 80f,
                 Delay = 250f,
@@ -6292,7 +6511,7 @@ namespace ZLib.Data
                 ChampionName = "thresh",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1175f,
                 Delay = 500f,
@@ -6949,7 +7168,7 @@ namespace ZLib.Data
                 ChampionName = "velkoz",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1250f,
                 Delay = 100f,
@@ -6964,7 +7183,7 @@ namespace ZLib.Data
                 ChampionName = "velkoz",
                 Slot = SpellSlot.Q,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 IsPerpindicular = true,
                 CastRange = 1050f,
                 Delay = 0f,
@@ -7285,6 +7504,60 @@ namespace ZLib.Data
 
             ZLib.Spells.Add(new Gamedata
             {
+                SpellName = "xayahq",
+                ChampionName = "xayah",
+                Slot = SpellSlot.Q,
+                CastType = CastType.MissileLinear,
+                FixedRange = true,
+                CastRange = 1100f,
+                Delay = 500f,
+                EventTypes = new EventType[] { },
+                MissileName = "xayahqmissile1",
+                MissileSpeed = 2060
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "xayahw",
+                ChampionName = "xayah",
+                Slot = SpellSlot.W,
+                CastType = CastType.Proximity,
+                CastRange = 1000f,
+                Delay = 250f,
+                EventTypes = new EventType[] { },
+                MissileSpeed = 4800
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "xayahe",
+                ChampionName = "xayah",
+                Slot = SpellSlot.E,
+                CastType = CastType.MissileLinear,
+                CastRange = 2000f,
+                Radius = 80,
+                Delay = 250f,
+                EventTypes = new EventType[] { },
+                MissileName = "xayahemissilesfx",
+                MissileSpeed = 4800
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
+                SpellName = "xayahr",
+                ChampionName = "xayah",
+                Slot = SpellSlot.R,
+                CastType = CastType.MissileLinear,
+                CastRange = 1100f,
+                Radius = 25,
+                Delay = 500f,
+                EventTypes = new EventType[] { EventType.Initiator },
+                MissileName = "xayahrmissile",
+                MissileSpeed = 4800
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
                 SpellName = "xeratharcanopulsechargeup",
                 ChampionName = "xerath",
                 Slot = SpellSlot.Q,
@@ -7315,7 +7588,7 @@ namespace ZLib.Data
                 ChampionName = "xerath",
                 Slot = SpellSlot.E,
                 CastType = CastType.MissileLinear,
-                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes, },
+                CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 1050f,
                 Delay = 250f,
