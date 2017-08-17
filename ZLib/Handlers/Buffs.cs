@@ -225,42 +225,58 @@ namespace ZLib.Handlers
 
         #endregion
 
-        #region Public Methods and Operators
+        #region Internal Methods and Operators
 
         /// <summary>
-        ///     Gets the custom damage.
+        ///     Amplifies the basic attack.
         /// </summary>
         /// <param name="source">The source.</param>
-        /// <param name="auraname">The auraname.</param>
         /// <param name="target">The target.</param>
-        /// <returns></returns>
-        public static int GetCustomDamage(this Obj_AI_Base source, string auraname, Obj_AI_Base target)
+        /// <returns>System.Double.</returns>
+        internal static double AmplifyAuto(this Obj_AI_Base source, Obj_AI_Base target)
         {
-            // todo: needs updating badly! ;_;
+            double dmg = 0;
 
-            if (auraname == "sheen")
+            var aiHero = source as Obj_AI_Hero;
+            if (aiHero != null)
             {
-                return
-                    (int)
-                    source.CalculateDamage(target, DamageType.Physical,
-                        1.0 * source.FlatPhysicalDamageMod + source.BaseAttackDamage);
+                if (source.HasBuff("sheen"))
+                    dmg +=
+                        source.CalculateDamage(target, DamageType.Physical,
+                            1.0 * source.FlatPhysicalDamageMod + source.BaseAttackDamage);
+
+                if (source.HasBuff("lichbane"))
+                {
+                    dmg +=
+                        source.CalculateDamage(target, DamageType.Magical,
+                            (0.75 * source.FlatPhysicalDamageMod + source.BaseAttackDamage) +
+                            (0.50 * source.FlatMagicDamageMod));
+                }
+
+                if (source.HasBuff("itemdisknighstalkerdamageproc"))
+                {
+                    dmg += source.CalculateDamage(target, DamageType.Physical, 50 + (15 * source.Level));
+                }
+
+                if (source.HasBuff("itemstatikshankcharge") && source.GetBuff("itemstatikshankcharge").Count == 100)
+                {
+                    return (int) source.CalculateDamage(target, DamageType.Physical,
+                        new[] { 62, 120, 200, 200 }[Math.Min(18, source.Level) / 6]);
+                }
+
+                foreach (var data in ZLib.CachedSpells.Where(x => x.ChampionName.ToLower() == aiHero.ChampionName.ToLower()))
+                {
+                    if (data.BasicAttackAmplifier)
+                    {
+                        dmg += aiHero.GetSpellDamage(target, data.Slot);
+                    }
+                }
+
+                return dmg;
             }
 
-            if (auraname == "lichbane")
-            {
-                return
-                    (int)
-                    source.CalculateDamage(target, DamageType.Magical,
-                        (0.75 * source.FlatPhysicalDamageMod + source.BaseAttackDamage) +
-                        (0.50 * source.FlatMagicDamageMod));
-            }
-
-            return 0;
+            return dmg;
         }
-
-        #endregion
-
-        #region Internal Methods and Operators
 
         internal static void StartOnUpdate()
         {

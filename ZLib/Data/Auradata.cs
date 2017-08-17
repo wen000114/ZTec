@@ -1791,13 +1791,13 @@ namespace ZLib.Data
                 Slot = SpellSlot.E,
                 Reverse = true,
                 Radius = 300,
-                Interval = 0.2
+                Interval = 0.3
             });
 
             ZLib.AuraList.Add(new Auradata
             {
                 Champion = "Zac",
-                Name = "zacr",
+                Name = "zacrmove",
                 Evade = true,
                 DoT = true,
                 Cleanse = false,
@@ -1806,7 +1806,7 @@ namespace ZLib.Data
                 Slot = SpellSlot.R,
                 Reverse = true,
                 Radius = 300,
-                Interval = 0.8
+                Interval = 0.3
             });
 
             ZLib.AuraList.Add(new Auradata

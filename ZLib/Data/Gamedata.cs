@@ -114,7 +114,7 @@ namespace ZLib.Data
         /// <value>
         ///     The missile speed.
         /// </value>
-        public int MissileSpeed { get; internal set; } = int.MaxValue;
+        public int MissileSpeed { get; internal set; } = 4800;
 
         /// <summary>
         ///     Gets or sets from object.
@@ -156,6 +156,12 @@ namespace ZLib.Data
         /// </value>
         public bool IsPerpindicular { get; internal set; }
 
+        /// <summary>
+        /// Gets a value indicating whether the spell is a basic attack amplifier.
+        /// </summary>
+        /// <value><c>true</c> if it is a basic attack amplifier; otherwise, <c>false</c>.</value>
+        public bool BasicAttackAmplifier { get; internal set; }
+
         #endregion
 
         #region Constructors and Destructors
@@ -187,10 +193,11 @@ namespace ZLib.Data
                 ChampionName = "aatrox",
                 Slot = SpellSlot.W,
                 CastType = CastType.Proximity,
+                BasicAttackAmplifier = true,
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -199,10 +206,11 @@ namespace ZLib.Data
                 ChampionName = "aatrox",
                 Slot = SpellSlot.W,
                 CastType = CastType.Proximity,
+                BasicAttackAmplifier = true,
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -229,7 +237,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -313,7 +321,7 @@ namespace ZLib.Data
                 CastRange = 1000f, // Range: 700 + additional for stealth detection
                 Delay = 500f,
                 EventTypes = new[] { EventType.Stealth },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -326,7 +334,7 @@ namespace ZLib.Data
                 CastRange = 325f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -352,7 +360,7 @@ namespace ZLib.Data
                 Radius = 365f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -377,7 +385,7 @@ namespace ZLib.Data
                 Radius = 300f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -389,7 +397,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -417,7 +425,7 @@ namespace ZLib.Data
                 CastRange = 300f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -429,7 +437,7 @@ namespace ZLib.Data
                 CastRange = 350f,
                 Delay = 150f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -448,7 +456,7 @@ namespace ZLib.Data
                         EventType.CrowdControl, EventType.Initiator
                     },
                 MissileName = "",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -499,7 +507,7 @@ namespace ZLib.Data
                 CastRange = 625f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -525,7 +533,7 @@ namespace ZLib.Data
                 Radius = 210f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -537,7 +545,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -554,7 +562,7 @@ namespace ZLib.Data
                         EventType.Danger, EventType.Ultimate,
                         EventType.CrowdControl, EventType.Initiator
                     },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -562,11 +570,12 @@ namespace ZLib.Data
                 SpellName = "frostshot",
                 ChampionName = "ashe",
                 Slot = SpellSlot.Q,
+                BasicAttackAmplifier = true,
                 CastType = CastType.Proximity,
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -578,7 +587,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -730,7 +739,7 @@ namespace ZLib.Data
                         EventType.Danger, EventType.Ultimate,
                         EventType.CrowdControl
                     },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -811,7 +820,7 @@ namespace ZLib.Data
                 Radius = 100f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -824,7 +833,8 @@ namespace ZLib.Data
                 Radius = 210f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -838,7 +848,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
                 MissileName = "",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -878,7 +888,7 @@ namespace ZLib.Data
                 CastRange = 625f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -943,7 +953,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -975,6 +985,7 @@ namespace ZLib.Data
                 Radius = 325f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
+                BasicAttackAmplifier = true,
                 MissileSpeed = 4800
             });
 
@@ -1099,7 +1110,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new EventType[] { },
                 MissileName = "cassiopeianoxiousblast",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1143,7 +1154,7 @@ namespace ZLib.Data
                         EventType.CrowdControl, EventType.Initiator
                     },
                 MissileName = "cassiopeiar",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1162,7 +1173,7 @@ namespace ZLib.Data
                         EventType.CrowdControl, EventType.Initiator
                     },
                 MissileName = "cassiopeiarstun",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1176,7 +1187,7 @@ namespace ZLib.Data
                 Delay = 900f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
                 MissileName = "",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1190,7 +1201,7 @@ namespace ZLib.Data
                 Radius = 210f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1214,7 +1225,7 @@ namespace ZLib.Data
                 CastRange = 300f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.Ultimate },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1251,7 +1262,7 @@ namespace ZLib.Data
                 CastRange = 750f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1281,7 +1292,7 @@ namespace ZLib.Data
                 CastRange = 425f,
                 Delay = 750f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1293,7 +1304,8 @@ namespace ZLib.Data
                 CastRange = 205f,
                 Delay = 150f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1307,7 +1319,7 @@ namespace ZLib.Data
                 Delay = 150f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Danger, EventType.Initiator },
                 MissileName = "dariusaxegrabcone",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1320,7 +1332,7 @@ namespace ZLib.Data
                 CastRange = 475f,
                 Delay = 450f,
                 EventTypes = new[] { EventType.Danger, EventType.Ultimate },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1346,7 +1358,7 @@ namespace ZLib.Data
                 CastRange = 200f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1359,7 +1371,7 @@ namespace ZLib.Data
                 Radius = 450f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1384,7 +1396,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1396,7 +1409,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1452,7 +1465,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1464,7 +1477,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1476,7 +1490,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1504,7 +1518,8 @@ namespace ZLib.Data
                 CastRange = 300f,
                 Delay = 0f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1517,7 +1532,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.Ultimate },
                 FromObject = new[] { "Ekko_Base_R_TrailEnd" },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1541,7 +1556,7 @@ namespace ZLib.Data
                 CastRange = 475f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1565,7 +1580,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1592,7 +1607,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1604,7 +1619,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1616,7 +1631,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1628,7 +1643,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1641,7 +1656,7 @@ namespace ZLib.Data
                 CastRange = 500f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1653,7 +1668,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1665,7 +1680,8 @@ namespace ZLib.Data
                 CastRange = 225f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1683,7 +1699,7 @@ namespace ZLib.Data
                         EventType.CrowdControl, EventType.Initiator
                     },
                 MissileName = "evelynnr",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1738,7 +1754,7 @@ namespace ZLib.Data
                 CastRange = 750f, // 475f + Bolt Range
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1765,7 +1781,7 @@ namespace ZLib.Data
                 CastRange = 575f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1777,7 +1793,7 @@ namespace ZLib.Data
                 CastRange = 575f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1801,7 +1817,7 @@ namespace ZLib.Data
                 CastRange = 800f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.ForceExhaust, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1826,7 +1842,7 @@ namespace ZLib.Data
                 CastRange = 750f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1838,7 +1854,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1850,7 +1866,7 @@ namespace ZLib.Data
                 CastRange = 500f,
                 Delay = 150f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1875,7 +1891,8 @@ namespace ZLib.Data
                 CastRange = 175f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1887,7 +1904,7 @@ namespace ZLib.Data
                 CastRange = 450f,
                 Delay = 700f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1899,7 +1916,7 @@ namespace ZLib.Data
                 CastRange = 330f,
                 Delay = 0f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -1911,7 +1928,7 @@ namespace ZLib.Data
                 CastRange = 270f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2002,7 +2019,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new [] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2038,7 +2055,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2050,7 +2067,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2075,7 +2092,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 300f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2087,7 +2104,7 @@ namespace ZLib.Data
                 CastRange = 350f,
                 Delay = 0f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2122,6 +2139,19 @@ namespace ZLib.Data
 
             ZLib.Spells.Add(new Gamedata
             {
+                SpellName = "gnarw",
+                ChampionName = "gnar",
+                Slot = SpellSlot.W,
+                CastType = CastType.Proximity,
+                CastRange = 0f,
+                Delay = 0f,
+                EventTypes = new EventType[] {  },
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
+            });
+
+            ZLib.Spells.Add(new Gamedata
+            {
                 SpellName = "gnarbigw",
                 ChampionName = "gnar",
                 Slot = SpellSlot.W,
@@ -2130,7 +2160,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 600f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2148,7 +2178,7 @@ namespace ZLib.Data
                         EventType.CrowdControl, EventType.Initiator
                     },
 
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2160,7 +2190,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2172,7 +2202,7 @@ namespace ZLib.Data
                 CastRange = 660f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2185,7 +2215,7 @@ namespace ZLib.Data
                 Radius = 100f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.Ultimate },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             // todo: improve gragas
@@ -2223,7 +2253,7 @@ namespace ZLib.Data
                 CastRange = 1100f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2235,7 +2265,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2247,10 +2278,10 @@ namespace ZLib.Data
                 CollidesWith = new[] { CollisionObjectType.EnemyMinions, CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
                 CastRange = 600f,
-                Delay = 200f,
+                Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl, EventType.Initiator },
                 MissileName = "gragase",
-                MissileSpeed = 1200
+                MissileSpeed = 550
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2259,7 +2290,8 @@ namespace ZLib.Data
                 ChampionName = "gragas",
                 Slot = SpellSlot.R,
                 CastType = CastType.Circlular,
-                CastRange = 1150f,
+                CastRange = 1300f,
+                Radius = 120f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl, EventType.Initiator },
                 MissileName = "gragasrboom",
@@ -2338,7 +2370,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2350,7 +2382,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2443,7 +2476,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 230f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2480,7 +2513,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 230f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2492,7 +2526,7 @@ namespace ZLib.Data
                 CastRange = 450f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2520,7 +2554,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
                 MissileName = "illaoiemis",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2532,7 +2566,7 @@ namespace ZLib.Data
                 CastRange = 365f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2559,7 +2593,7 @@ namespace ZLib.Data
                 CastRange = 450f,
                 Delay = 500f,
                 EventTypes = new[] { EventType.Ultimate, EventType.Danger, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2587,7 +2621,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new EventType[] { },
                 MissileName = "ivernw",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2600,7 +2634,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new EventType[] { },
                 MissileName = "iverne",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2638,7 +2672,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2650,7 +2684,7 @@ namespace ZLib.Data
                 CastRange = 725f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2676,7 +2710,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2689,7 +2723,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new EventType[] { },
                 MissileName = "jarvanivdemacianstandard",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2701,7 +2735,7 @@ namespace ZLib.Data
                 CastRange = 825f,
                 Delay = 0f,
                 EventTypes = new[] { EventType.Danger, EventType.Ultimate },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2725,7 +2759,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2737,7 +2772,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2749,7 +2785,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2788,7 +2824,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 750f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2800,7 +2836,7 @@ namespace ZLib.Data
                 CastRange = 325f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2825,7 +2861,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 750f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2837,7 +2874,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 750f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2904,7 +2941,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2977,7 +3015,7 @@ namespace ZLib.Data
                 CastRange = 800f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -2989,7 +3027,7 @@ namespace ZLib.Data
                 CastRange = 800f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3018,7 +3056,7 @@ namespace ZLib.Data
                     "karthuslaywastea3", "karthuslaywastea1", "karthuslaywastedeada1", "karthuslaywastedeada2",
                     "karthuslaywastedeada3"
                 },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3055,7 +3093,7 @@ namespace ZLib.Data
                 Global = true,
                 Delay = 2800f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3079,7 +3117,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3091,7 +3130,7 @@ namespace ZLib.Data
                 CastRange = 700f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3104,7 +3143,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
                 MissileName = "riftwalk",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3140,7 +3179,7 @@ namespace ZLib.Data
                 CastRange = 700f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3176,7 +3215,7 @@ namespace ZLib.Data
                 CastRange = 900f,
                 Delay = 220f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3188,7 +3227,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3200,7 +3240,7 @@ namespace ZLib.Data
                 CastRange = 900f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             #region Kayn
@@ -3228,7 +3268,7 @@ namespace ZLib.Data
                 CastRange = 700f,
                 Delay = 500f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3281,7 +3321,7 @@ namespace ZLib.Data
                 CastRange = 900f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3293,7 +3333,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3305,7 +3345,7 @@ namespace ZLib.Data
                 CastRange = 550f,
                 Delay = 500f,
                 EventTypes = new[] { EventType.Danger, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3317,7 +3357,7 @@ namespace ZLib.Data
                 CastRange = 325f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3329,7 +3369,7 @@ namespace ZLib.Data
                 CastRange = 375f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3371,7 +3411,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new EventType[] { },
                 MissileName = "khazixe",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3383,7 +3423,7 @@ namespace ZLib.Data
                 CastRange = 900f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3395,7 +3435,7 @@ namespace ZLib.Data
                 CastRange = 1000f,
                 Delay = 0f,
                 EventTypes = new[] { EventType.Stealth, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3407,7 +3447,7 @@ namespace ZLib.Data
                 CastRange = 1000f,
                 Delay = 0f,
                 EventTypes = new[] { EventType.Stealth },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3419,7 +3459,7 @@ namespace ZLib.Data
                 CastRange = 350f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3501,7 +3541,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3521,19 +3561,20 @@ namespace ZLib.Data
 
             ZLib.Spells.Add(new Gamedata
             {
-                SpellName = "kogmawbioarcanebarrage",
+                SpellName = "kogmaww",
                 ChampionName = "kogmaw",
                 Slot = SpellSlot.W,
                 CastType = CastType.Proximity,
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
+                BasicAttackAmplifier = true,
                 MissileSpeed = 2000
             });
 
             ZLib.Spells.Add(new Gamedata
             {
-                SpellName = "kogmawvoidooze",
+                SpellName = "kogmawe",
                 ChampionName = "kogmaw",
                 Slot = SpellSlot.E,
                 CastType = CastType.Linear,
@@ -3541,21 +3582,20 @@ namespace ZLib.Data
                 CastRange = 1150f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileName = "kogmawvoidoozemissile",
+                MissileName = "kogmawemis",
                 MissileSpeed = 1250
             });
 
             ZLib.Spells.Add(new Gamedata
             {
-                SpellName = "kogmawlivingartillery",
+                SpellName = "kogmawr",
                 ChampionName = "kogmaw",
                 Slot = SpellSlot.R,
                 CastType = CastType.Circlular,
                 CastRange = 2200f,
                 Delay = 1200f,
-                EventTypes = new[] { EventType.Danger },
-                MissileName = "kogmawlivingartillery",
-                MissileSpeed = int.MaxValue
+                EventTypes = new[] { EventType.Danger },     
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3592,7 +3632,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3644,7 +3684,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3686,7 +3726,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3710,7 +3750,7 @@ namespace ZLib.Data
                 CastRange = 700f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3722,7 +3762,7 @@ namespace ZLib.Data
                 CastRange = 425f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3734,7 +3774,7 @@ namespace ZLib.Data
                 CastRange = 350f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3751,7 +3791,7 @@ namespace ZLib.Data
                         EventType.Danger, EventType.Ultimate,
                         EventType.CrowdControl, EventType.Initiator
                     },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3763,7 +3803,8 @@ namespace ZLib.Data
                 CastRange = 215f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3775,7 +3816,7 @@ namespace ZLib.Data
                 CastRange = 250f,
                 Delay = 3000f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3802,7 +3843,7 @@ namespace ZLib.Data
                 Delay = 1200f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
                 MissileName = "leonasolarflare",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3828,7 +3869,7 @@ namespace ZLib.Data
                 CastRange = 450f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3858,7 +3899,7 @@ namespace ZLib.Data
                     EventType.CrowdControl, EventType.Initiator,
                     EventType.Danger, EventType.Ultimate
                 },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3872,7 +3913,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
                 MissileName = "lucianq",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3899,7 +3940,7 @@ namespace ZLib.Data
                 CastRange = 650f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3955,7 +3996,7 @@ namespace ZLib.Data
                 CastRange = 650f,
                 Delay = 640f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -3967,7 +4008,7 @@ namespace ZLib.Data
                 CastRange = 900f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4074,7 +4115,7 @@ namespace ZLib.Data
                 CastRange = 1200f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4098,7 +4139,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4110,7 +4151,7 @@ namespace ZLib.Data
                 CastRange = 400f,
                 Delay = 500f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4142,7 +4183,7 @@ namespace ZLib.Data
                 Delay = 600f,
                 EventTypes = new[] { EventType.CrowdControl },
                 MissileName = "alzaharcallofthevoid",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4154,7 +4195,7 @@ namespace ZLib.Data
                 CastRange = 800f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4166,7 +4207,7 @@ namespace ZLib.Data
                 CastRange = 650f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4183,7 +4224,7 @@ namespace ZLib.Data
                         EventType.Danger, EventType.Ultimate,
                         EventType.CrowdControl, EventType.Initiator
                     },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4191,13 +4232,14 @@ namespace ZLib.Data
                 SpellName = "maokaiq",
                 ChampionName = "maokai",
                 Slot = SpellSlot.Q,
-                CastType = CastType.Linear,
-                CollidesWith = new[] { CollisionObjectType.EnemyHeroes },
+                CastType = CastType.MissileLinear,
                 FixedRange = true,
-                CastRange = 600f,
+                CastRange = 650f,
+                Radius = 110f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = 1200
+                MissileName = "maokaiqmissile",
+                MissileSpeed = 1600,
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4206,10 +4248,10 @@ namespace ZLib.Data
                 ChampionName = "maokai",
                 Slot = SpellSlot.W,
                 CastType = CastType.Targeted,
-                CastRange = 650f,
+                CastRange = 525f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 1500
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4219,8 +4261,10 @@ namespace ZLib.Data
                 Slot = SpellSlot.E,
                 CastType = CastType.Circlular,
                 CastRange = 1100f,
+                Radius = 120f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
+                MissileName = "maokaiemissile",
                 MissileSpeed = 1750
             });
 
@@ -4229,12 +4273,13 @@ namespace ZLib.Data
                 SpellName = "maokair",
                 ChampionName = "maokai",
                 Slot = SpellSlot.R,
-                CastType = CastType.Linear,
-                Radius = 400f,
-                CastRange = 625f,
+                CastType = CastType.MissileLinearAoE,
+                Radius = 120f,
+                CastRange = 3000f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = 600
+                MissileName = "maokairmis",
+                MissileSpeed = 400
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4246,7 +4291,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 600f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4258,7 +4303,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4270,7 +4315,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 230f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4282,7 +4328,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 370f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4306,7 +4352,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4318,7 +4365,7 @@ namespace ZLib.Data
                 CastRange = 1000f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4331,7 +4378,7 @@ namespace ZLib.Data
                 CastRange = 1400f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator, EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4343,6 +4390,7 @@ namespace ZLib.Data
                 CastRange = 300f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
+                BasicAttackAmplifier = true,
                 MissileSpeed = 20
             });
 
@@ -4355,7 +4403,7 @@ namespace ZLib.Data
                 CastRange = 1000f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Stealth },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4368,7 +4416,7 @@ namespace ZLib.Data
                 Delay = 0f,
                 EventTypes = new EventType[] { },
                 FromObject = new[] { "Base_W_Copy" },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4397,7 +4445,7 @@ namespace ZLib.Data
                         EventType.Danger, EventType.Ultimate,
                         EventType.CrowdControl, EventType.Initiator
                     },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4421,6 +4469,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
+                BasicAttackAmplifier = true,
                 MissileSpeed = 1500
             });
 
@@ -4433,7 +4482,7 @@ namespace ZLib.Data
                 CastRange = 750f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4458,7 +4507,7 @@ namespace ZLib.Data
                 CastRange = 850f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4485,7 +4534,7 @@ namespace ZLib.Data
                 CastRange = 850f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4497,7 +4546,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4509,7 +4558,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4546,7 +4595,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4572,7 +4621,8 @@ namespace ZLib.Data
                 CastRange = 450f,
                 Delay = 500f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4584,7 +4634,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4596,7 +4646,7 @@ namespace ZLib.Data
                 CastRange = 850f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4608,7 +4658,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4635,7 +4685,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4687,7 +4737,7 @@ namespace ZLib.Data
                 CastRange = 500f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4724,7 +4774,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4737,7 +4787,7 @@ namespace ZLib.Data
                 CastRange = 350f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4749,7 +4799,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4787,7 +4837,7 @@ namespace ZLib.Data
                 CastRange = 350f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4824,7 +4874,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4848,7 +4898,7 @@ namespace ZLib.Data
                 CastRange = 650f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4873,7 +4923,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4885,7 +4935,7 @@ namespace ZLib.Data
                 CastRange = 325f,
                 Delay = 500f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4897,7 +4947,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4925,7 +4975,7 @@ namespace ZLib.Data
                 EventTypes = new[] { EventType.CrowdControl },
                 MissileName = "orianadissonancecommand",
                 FromObject = new[] { "yomu_ring" },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4958,7 +5008,7 @@ namespace ZLib.Data
                     },
                 MissileName = "orianadetonatecommand",
                 FromObject = new[] { "yomu_ring" },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4982,7 +5032,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -4994,7 +5044,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5031,7 +5081,7 @@ namespace ZLib.Data
                 CastRange = 450f,
                 Delay = 500f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5043,7 +5093,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5082,7 +5132,7 @@ namespace ZLib.Data
                 CastRange = 450f,
                 Delay = 300f,
                 EventTypes = new[] { EventType.Danger, EventType.Ultimate },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5110,7 +5160,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5134,7 +5184,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5146,7 +5196,7 @@ namespace ZLib.Data
                 CastRange = 700f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5249,7 +5299,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5261,7 +5311,7 @@ namespace ZLib.Data
                 CastRange = 325f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5273,7 +5323,7 @@ namespace ZLib.Data
                 CastRange = 300f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5285,7 +5335,7 @@ namespace ZLib.Data
                 CastRange = 225f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5294,10 +5344,11 @@ namespace ZLib.Data
                 ChampionName = "renekton",
                 Slot = SpellSlot.W,
                 CastType = CastType.Proximity,
+                BasicAttackAmplifier = true,
                 CastRange = 275f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5321,7 +5372,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5334,7 +5385,7 @@ namespace ZLib.Data
                 Radius = 150f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5347,7 +5398,7 @@ namespace ZLib.Data
                 Radius = 150f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5359,7 +5410,7 @@ namespace ZLib.Data
                 CastRange = 500f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5387,7 +5438,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5400,7 +5451,8 @@ namespace ZLib.Data
                 CastRange = 275f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5426,7 +5478,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 350f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5438,7 +5490,7 @@ namespace ZLib.Data
                 CastRange = 200f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5450,7 +5502,7 @@ namespace ZLib.Data
                 CastRange = 250f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5475,7 +5527,7 @@ namespace ZLib.Data
                 CastRange = 850,
                 Delay = 1000f,
                 EventTypes = new[] { EventType.Initiator, EventType.Ultimate },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5488,7 +5540,7 @@ namespace ZLib.Data
                 CastRange = 270f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5500,7 +5552,7 @@ namespace ZLib.Data
                 CastRange = 260f,
                 Delay = 100f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5524,7 +5576,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5551,7 +5603,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5563,7 +5615,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5618,7 +5670,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5712,7 +5764,7 @@ namespace ZLib.Data
                 CastRange = 1000f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Stealth },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5773,7 +5825,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5798,7 +5850,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5807,10 +5859,11 @@ namespace ZLib.Data
                 ChampionName = "shyvana",
                 Slot = SpellSlot.Q,
                 CastType = CastType.Targeted,
+                BasicAttackAmplifier = true,
                 CastRange = 275f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5822,7 +5875,8 @@ namespace ZLib.Data
                 CastRange = 325f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5834,7 +5888,7 @@ namespace ZLib.Data
                 CastRange = 275f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5846,7 +5900,7 @@ namespace ZLib.Data
                 CastRange = 250f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5903,7 +5957,7 @@ namespace ZLib.Data
                 CastRange = 250f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5927,7 +5981,7 @@ namespace ZLib.Data
                 CastRange = 125f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5939,7 +5993,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5952,7 +6006,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5964,7 +6018,7 @@ namespace ZLib.Data
                 CastRange = 350f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6018,7 +6072,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6030,7 +6085,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6042,7 +6097,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6054,7 +6109,7 @@ namespace ZLib.Data
                 CastRange = 350f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6066,7 +6121,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6092,7 +6147,7 @@ namespace ZLib.Data
                 CastRange = 350f,
                 Delay = 350f,
                 EventTypes = new[] { EventType.Danger, EventType.CrowdControl, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6172,7 +6227,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6184,7 +6239,7 @@ namespace ZLib.Data
                 CastRange = 925f,
                 Delay = 1750f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6196,7 +6251,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6208,7 +6263,7 @@ namespace ZLib.Data
                 CastRange = 625f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6221,7 +6276,7 @@ namespace ZLib.Data
                 Delay = 1100f,
                 EventTypes = new[] { EventType.CrowdControl },
                 MissileName = "swainshadowgrasp",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6339,7 +6394,7 @@ namespace ZLib.Data
                 Radius = 150f,
                 Delay = 900f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6365,7 +6420,7 @@ namespace ZLib.Data
                 CastRange = 275f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6392,7 +6447,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6406,7 +6461,7 @@ namespace ZLib.Data
                 MissileName = "talonrmisone",
                 EventTypes = new[] { EventType.Stealth, EventType.Initiator },
                 ExtraMissileNames = new[] { "talonrmistwo" },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6430,7 +6485,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6442,7 +6497,7 @@ namespace ZLib.Data
                 CastRange = 625f,
                 Delay = 1000f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6454,7 +6509,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6490,7 +6545,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6529,7 +6584,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6542,7 +6597,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
                 MissileName = "threshemissile1",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6566,7 +6621,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6618,7 +6673,8 @@ namespace ZLib.Data
                 Radius = 210f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6631,7 +6687,8 @@ namespace ZLib.Data
                 CastRange = 300f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6643,7 +6700,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6669,7 +6726,7 @@ namespace ZLib.Data
                 Radius = 300f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6681,7 +6738,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6693,7 +6750,7 @@ namespace ZLib.Data
                 CastRange = 400f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6718,7 +6775,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6730,7 +6787,7 @@ namespace ZLib.Data
                 CastRange = 1000f,
                 Delay = 450f,
                 EventTypes = new[] { EventType.Stealth },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6767,7 +6824,7 @@ namespace ZLib.Data
                 CastRange = 1200f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6779,7 +6836,7 @@ namespace ZLib.Data
                 CastRange = 1200f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6817,7 +6874,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6829,7 +6886,8 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Danger },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6841,7 +6899,8 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6853,7 +6912,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6877,7 +6936,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6889,7 +6948,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6901,7 +6960,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6913,7 +6972,8 @@ namespace ZLib.Data
                 CastRange = 250f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6925,7 +6985,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -6963,7 +7024,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7026,7 +7087,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7067,11 +7129,12 @@ namespace ZLib.Data
                 SpellName = "vaynetumble",
                 ChampionName = "vayne",
                 Slot = SpellSlot.Q,
-                CastType = CastType.LinearAoE,
-                CastRange = 850f,
+                CastType = CastType.Proximity,
+                CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7081,9 +7144,10 @@ namespace ZLib.Data
                 Slot = SpellSlot.W,
                 CastType = CastType.Proximity,
                 CastRange = 0f,
-                Delay = 0f,
+                Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7095,7 +7159,7 @@ namespace ZLib.Data
                 CastRange = 550f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl, EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7107,7 +7171,7 @@ namespace ZLib.Data
                 CastRange = 1200f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Stealth, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7134,7 +7198,7 @@ namespace ZLib.Data
                 Delay = 1200f,
                 EventTypes = new EventType[] { },
                 MissileName = "",
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7252,7 +7316,8 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7264,7 +7329,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7332,7 +7397,7 @@ namespace ZLib.Data
                         EventType.CrowdControl, EventType.Ultimate,
                         EventType.Danger, EventType.Initiator
                     },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7380,7 +7445,7 @@ namespace ZLib.Data
                 CastRange = 875f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7389,10 +7454,11 @@ namespace ZLib.Data
                 ChampionName = "volibear",
                 Slot = SpellSlot.Q,
                 CastType = CastType.Proximity,
-                CastRange = 300f,
+                CastRange = 0f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                EventTypes = new EventType[] { EventType.Initiator, EventType.CrowdControl },
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7425,9 +7491,10 @@ namespace ZLib.Data
                 ChampionName = "volibear",
                 Slot = SpellSlot.R,
                 CastType = CastType.Proximity,
-                CastRange = 425f,
-                Delay = 0f,
+                CastRange = 0f,
+                Delay = 250f,
                 EventTypes = new EventType[] { },
+                BasicAttackAmplifier = true,
                 MissileSpeed = 825
             });
 
@@ -7441,7 +7508,7 @@ namespace ZLib.Data
                 Radius = 210f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7453,7 +7520,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7465,7 +7532,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 0f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7482,7 +7549,7 @@ namespace ZLib.Data
                         EventType.Danger, EventType.Ultimate,
                         EventType.CrowdControl, EventType.Initiator
                     },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7499,7 +7566,7 @@ namespace ZLib.Data
                         EventType.Danger, EventType.Ultimate,
                         EventType.CrowdControl, EventType.Initiator
                     },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7619,7 +7686,8 @@ namespace ZLib.Data
                 Radius = 210f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7632,7 +7700,8 @@ namespace ZLib.Data
                 Radius = 225f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7645,7 +7714,7 @@ namespace ZLib.Data
                 Radius = 225f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7671,7 +7740,8 @@ namespace ZLib.Data
                 Radius = 210f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7714,7 +7784,7 @@ namespace ZLib.Data
                 CastRange = 475f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7727,7 +7797,7 @@ namespace ZLib.Data
                 CastRange = 475f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7778,7 +7848,7 @@ namespace ZLib.Data
                 CastRange = 1200f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.Danger, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7787,10 +7857,11 @@ namespace ZLib.Data
                 ChampionName = "yorick",
                 Slot = SpellSlot.Q,
                 CastType = CastType.Proximity,
-                CastRange = 350f,
+                CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                BasicAttackAmplifier = true,
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7802,7 +7873,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7836,14 +7907,14 @@ namespace ZLib.Data
                 SpellName = "zacq",
                 ChampionName = "zac",
                 Slot = SpellSlot.Q,
-                CastType = CastType.Linear,
+                CastType = CastType.MissileLinear,
                 CollidesWith = new[] { CollisionObjectType.EnemyHeroes },
                 FixedRange = true,
-                CastRange = 550f,
+                CastRange = 800f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileName = "zacq",
-                MissileSpeed = 1600
+                MissileName = "zaqmissile",
+                MissileSpeed = 2600
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7855,7 +7926,7 @@ namespace ZLib.Data
                 CastRange = 350f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7864,9 +7935,9 @@ namespace ZLib.Data
                 ChampionName = "zac",
                 Slot = SpellSlot.E,
                 CastType = CastType.Proximity,
-                CastRange = 0f,
+                CastRange = 300f,
                 Delay = 250f,
-                EventTypes = new EventType[] { },
+                EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
                 MissileSpeed = 1500
             });
 
@@ -7876,10 +7947,11 @@ namespace ZLib.Data
                 ChampionName = "zac",
                 Slot = SpellSlot.R,
                 CastType = CastType.Proximity,
-                CastRange = 850f,
+                CastRange = 600f,
+                Radius = 300f,
                 Delay = 250f,
-                EventTypes = new[] { EventType.Danger, EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                EventTypes = new[] { EventType.Danger, EventType.CrowdControl, EventType.Ultimate },
+                MissileSpeed = 1800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7919,7 +7991,7 @@ namespace ZLib.Data
                 CastRange = 300f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -7931,7 +8003,7 @@ namespace ZLib.Data
                 CastRange = 850f,
                 Delay = 450f,
                 EventTypes = new[] { EventType.Danger, EventType.Initiator },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -8035,7 +8107,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -8047,7 +8119,7 @@ namespace ZLib.Data
                 CastRange = 700f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -8059,7 +8131,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -8133,7 +8205,7 @@ namespace ZLib.Data
                         EventType.Danger, EventType.Ultimate,
                         EventType.CrowdControl, EventType.Initiator
                     },
-                MissileSpeed = int.MaxValue
+                MissileSpeed = 4800
             });
         }
 

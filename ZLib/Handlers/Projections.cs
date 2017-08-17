@@ -259,29 +259,20 @@
                         {
                             if (args.Target.NetworkId == hero.Instance.NetworkId)
                             {
-                                float dmg = 0;
-
+                                double dmg = 0;
                                 dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance), 0);
 
-                                if (attacker.HasBuff("sheen"))
-                                    dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance) +
-                                        attacker.GetCustomDamage("sheen", hero.Instance), 0);
-
-                                if (attacker.HasBuff("lichbane"))
-                                    dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance) +
-                                        attacker.GetCustomDamage("lichbane", hero.Instance), 0);
-
-                                if (attacker.HasBuff("itemstatikshankcharge")
-                                    && attacker.GetBuff("itemstatikshankcharge").Count == 100)
-                                    dmg += new[] { 62, 120, 200, 200 }[Math.Min(18, attacker.Level) / 6];
+                                if (attacker.HasBuffOfType(BuffType.CombatEnchancer))
+                                {
+                                    dmg += attacker.AmplifyAuto(hero.Instance);
+                                }
 
                                 if (args.SpellData.Name.ToLower().Contains("crit"))
                                 {
-                                    dmg += (int) Math.Max(attacker.GetAutoAttackDamage(hero.Instance), 0);
+                                    dmg = dmg * 2;
                                 }
 
-                                EmulateDamage(attacker, hero, new Gamedata { SpellName = args.SpellData.Name },
-                                    EventType.AutoAttack, "enemy.autoattack", dmg);
+                                EmulateDamage(attacker, hero, new Gamedata { SpellName = args.SpellData.Name }, EventType.AutoAttack, "enemy.autoattack", (float) dmg);
                             }
                         }
 
@@ -486,7 +477,8 @@
                                 if (hero.Instance.Distance(attacker.ServerPosition) <= data.CastRange + 100)
                                 {
                                     var distance =
-                                        (int) (1000 * (attacker.Distance(hero.Instance.ServerPosition) / data.MissileSpeed));
+                                        (int) (1000 * (attacker.Distance(hero.Instance.ServerPosition) 
+                                            / data.MissileSpeed));
 
                                     var endtime = data.Delay + distance - Game.Ping / 2f;
                                     EmulateDamage(attacker, hero, data, EventType.Spell, "spell.targeted", 0f, (int) endtime);
