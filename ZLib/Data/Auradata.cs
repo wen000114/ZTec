@@ -1781,6 +1781,21 @@ namespace ZLib.Data
 
             ZLib.AuraList.Add(new Auradata
             {
+                Champion = "Kled",
+                Name = "kledrdash",
+                Evade = false,
+                DoT = true,
+                Cleanse = false,
+                CleanseTimer = 0,
+                EvadeTimer = 0,
+                Slot = SpellSlot.R,
+                Reverse = true,
+                Radius = 200,
+                Interval = 0.3
+            });
+
+            ZLib.AuraList.Add(new Auradata
+            {
                 Champion = "Zac",
                 Name = "zacemove",
                 Evade = false,

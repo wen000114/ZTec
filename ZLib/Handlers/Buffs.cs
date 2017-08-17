@@ -266,9 +266,19 @@ namespace ZLib.Handlers
 
                 foreach (var data in ZLib.CachedSpells.Where(x => x.ChampionName.ToLower() == aiHero.ChampionName.ToLower()))
                 {
-                    if (data.BasicAttackAmplifier)
+                    if (aiHero.HasBuff(data.SpellName.ToLower()))
                     {
-                        dmg += aiHero.GetSpellDamage(target, data.Slot);
+                        if (data.BasicAttackAmplifier)
+                        {
+                            dmg += aiHero.GetSpellDamage(target, data.Slot);
+                        }
+                    }
+                    else if (aiHero.Buffs.Any(x => x.IsActive && x.IsValid && x.Name.ToLower().Contains(data.SpellName.ToLower())))
+                    {
+                        if (data.BasicAttackAmplifier)
+                        {
+                            dmg += aiHero.GetSpellDamage(target, data.Slot);
+                        }
                     }
                 }
 

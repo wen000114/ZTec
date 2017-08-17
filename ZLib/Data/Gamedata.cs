@@ -3513,6 +3513,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
+                BasicAttackAmplifier = true,
                 MissileSpeed = 2000
             });
 
@@ -3555,13 +3556,13 @@ namespace ZLib.Data
                 CastRange = 1300f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
-                MissileName = "kogmawq",
+                MissileName = "kogmawqmissile",
                 MissileSpeed = 1200
             });
 
             ZLib.Spells.Add(new Gamedata
             {
-                SpellName = "kogmaww",
+                SpellName = "kogmawbioarcanebarrage",
                 ChampionName = "kogmaw",
                 Slot = SpellSlot.W,
                 CastType = CastType.Proximity,
@@ -3574,21 +3575,21 @@ namespace ZLib.Data
 
             ZLib.Spells.Add(new Gamedata
             {
-                SpellName = "kogmawe",
+                SpellName = "kogmawvoidooze",
                 ChampionName = "kogmaw",
                 Slot = SpellSlot.E,
-                CastType = CastType.Linear,
+                CastType = CastType.MissileLinear,
                 FixedRange = true,
                 CastRange = 1150f,
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
-                MissileName = "kogmawemis",
+                MissileName = "kogmawvoidoozemissile",
                 MissileSpeed = 1250
             });
 
             ZLib.Spells.Add(new Gamedata
             {
-                SpellName = "kogmawr",
+                SpellName = "kogmawlivingartillery",
                 ChampionName = "kogmaw",
                 Slot = SpellSlot.R,
                 CastType = CastType.Circlular,
@@ -6912,6 +6913,7 @@ namespace ZLib.Data
                 CastRange = 600f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
+                BasicAttackAmplifier = true,
                 MissileSpeed = 4800
             });
 
@@ -6924,6 +6926,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
+                BasicAttackAmplifier = true,
                 MissileSpeed = 1200
             });
 
@@ -6948,6 +6951,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
+                BasicAttackAmplifier = true,
                 MissileSpeed = 4800
             });
 
@@ -6960,6 +6964,7 @@ namespace ZLib.Data
                 CastRange = 0f,
                 Delay = 250f,
                 EventTypes = new EventType[] { },
+                BasicAttackAmplifier = true,
                 MissileSpeed = 4800
             });
 

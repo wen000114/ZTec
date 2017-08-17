@@ -369,6 +369,12 @@
                                 endpos = startpos.To2D() + direction * data.CastRange;
                             }
 
+                            if (data.IsPerpindicular)
+                            {
+                                startpos = (endpos - direction.Perpendicular() * data.CastRange).To3D();
+                                endpos = endpos + direction.Perpendicular() * data.CastRange;
+                            }
+
                             var proj = hero.Instance.ServerPosition.To2D().ProjectOn(startpos.To2D(), endpos);
                             var projdist = hero.Instance.ServerPosition.To2D().Distance(proj.SegmentPoint);
                             var evadetime = (int) (1000 * (data.Radius - projdist + hero.Instance.BoundingRadius)
