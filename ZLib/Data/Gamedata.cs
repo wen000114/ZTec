@@ -157,7 +157,7 @@ namespace ZLib.Data
         public bool IsPerpindicular { get; internal set; }
 
         /// <summary>
-        /// Gets a value indicating whether the spell is a basic attack amplifier.
+        ///     Gets a value indicating whether the spell is a basic attack amplifier.
         /// </summary>
         /// <value><c>true</c> if it is a basic attack amplifier; otherwise, <c>false</c>.</value>
         public bool BasicAttackAmplifier { get; internal set; }
@@ -1011,7 +1011,7 @@ namespace ZLib.Data
                 CastRange = 1100f,
                 Radius = 35f,
                 Delay = 250f,
-                EventTypes = new EventType[] { EventType.Initiator },
+                EventTypes = new[] { EventType.Initiator },
                 MissileName = "camilleemissile",
                 MissileSpeed = 1350
             });
@@ -1025,7 +1025,7 @@ namespace ZLib.Data
                 CastRange = 800f,
                 Radius = 165f,
                 Delay = 250f,
-                EventTypes = new EventType[] { EventType.Initiator },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 1350
             });
 
@@ -1037,7 +1037,7 @@ namespace ZLib.Data
                 CastType = CastType.Targeted,
                 CastRange = 475f,
                 Delay = 250f,
-                EventTypes = new EventType[] { EventType.Initiator },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 11200
             });
 
@@ -1953,11 +1953,10 @@ namespace ZLib.Data
                 CastRange = 1200f,
                 Radius = 60,
                 Delay = 250f,
-                EventTypes = new EventType[] {  },
+                EventTypes = new EventType[] { },
                 MissileName = "galioqmissile",
                 MissileSpeed = 1300
             });
-
 
             ZLib.Spells.Add(new Gamedata
             {
@@ -1981,7 +1980,7 @@ namespace ZLib.Data
                 CastRange = 275f,
                 Radius = 275f,
                 Delay = 250f,
-                EventTypes = new EventType[] { EventType.CrowdControl, },
+                EventTypes = new[] { EventType.CrowdControl },
                 MissileSpeed = 4800
             });
 
@@ -1994,7 +1993,7 @@ namespace ZLib.Data
                 CastRange = 275f,
                 Radius = 275f,
                 Delay = 250f,
-                EventTypes = new EventType[] { EventType.CrowdControl, },
+                EventTypes = new[] { EventType.CrowdControl },
                 MissileSpeed = 4800
             });
 
@@ -2018,7 +2017,7 @@ namespace ZLib.Data
                 CastType = CastType.Proximity,
                 CastRange = 0f,
                 Delay = 0f,
-                EventTypes = new [] { EventType.Initiator },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 4800
             });
 
@@ -2145,7 +2144,7 @@ namespace ZLib.Data
                 CastType = CastType.Proximity,
                 CastRange = 0f,
                 Delay = 0f,
-                EventTypes = new EventType[] {  },
+                EventTypes = new EventType[] { },
                 BasicAttackAmplifier = true,
                 MissileSpeed = 4800
             });
@@ -3279,7 +3278,7 @@ namespace ZLib.Data
                 CastType = CastType.Targeted,
                 CastRange = 550f,
                 Delay = 250f,
-                EventTypes = new [] { EventType.Danger, EventType.Initiator },
+                EventTypes = new[] { EventType.Danger, EventType.Initiator },
                 MissileSpeed = 1450
             });
 
@@ -3595,7 +3594,7 @@ namespace ZLib.Data
                 CastType = CastType.Circlular,
                 CastRange = 2200f,
                 Delay = 1200f,
-                EventTypes = new[] { EventType.Danger },     
+                EventTypes = new[] { EventType.Danger },
                 MissileSpeed = 4800
             });
 
@@ -4240,7 +4239,7 @@ namespace ZLib.Data
                 Delay = 250f,
                 EventTypes = new[] { EventType.CrowdControl },
                 MissileName = "maokaiqmissile",
-                MissileSpeed = 1600,
+                MissileSpeed = 1600
             });
 
             ZLib.Spells.Add(new Gamedata
@@ -5209,7 +5208,7 @@ namespace ZLib.Data
                 CastRange = 900f,
                 Radius = 65f,
                 Delay = 250f,
-                EventTypes = new EventType[] {  },
+                EventTypes = new EventType[] { },
                 MissileName = "rakanqmis",
                 MissileSpeed = 1800
             });
@@ -5223,7 +5222,7 @@ namespace ZLib.Data
                 CastRange = 650f,
                 Radius = 285f,
                 Delay = 250f,
-                EventTypes = new [] { EventType.CrowdControl },
+                EventTypes = new[] { EventType.CrowdControl },
                 MissileSpeed = 1425
             });
 
@@ -5275,7 +5274,7 @@ namespace ZLib.Data
                 CastRange = 210f,
                 Radius = 210f,
                 Delay = 250f,
-                EventTypes = new EventType[] { EventType.Initiator },
+                EventTypes = new[] { EventType.Initiator },
                 MissileSpeed = 4800
             });
 
@@ -7461,7 +7460,7 @@ namespace ZLib.Data
                 CastType = CastType.Proximity,
                 CastRange = 0f,
                 Delay = 250f,
-                EventTypes = new EventType[] { EventType.Initiator, EventType.CrowdControl },
+                EventTypes = new[] { EventType.Initiator, EventType.CrowdControl },
                 BasicAttackAmplifier = true,
                 MissileSpeed = 4800
             });
@@ -7623,7 +7622,7 @@ namespace ZLib.Data
                 CastRange = 1100f,
                 Radius = 25,
                 Delay = 500f,
-                EventTypes = new EventType[] { EventType.Initiator },
+                EventTypes = new[] { EventType.Initiator },
                 MissileName = "xayahrmissile",
                 MissileSpeed = 4800
             });

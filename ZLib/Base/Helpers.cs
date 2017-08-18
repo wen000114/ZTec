@@ -140,9 +140,8 @@ namespace ZLib.Base
         Proximity,
         Targeted,
         Circlular,
-        Sector,
+        Sector
     }
-
 
     /// <summary>
     ///     Enum ProcessSpellType

@@ -782,14 +782,14 @@
             hpred.GameData = data;
             hpred.Name = string.Empty;
 
+            if (sender != null)
+            {
+                hpred.Attacker = sender;
+            }
+
             if (!string.IsNullOrEmpty(data?.SpellName))
             {
                 hpred.Name = data.SpellName;
-            }
-
-            if (!(sender == null))
-            {
-                hpred.Attacker = sender;
             }
 
             if (dmgEntry < 1f && sender != null)
@@ -858,15 +858,6 @@
         {
             Id++;
             var id = Id;
-
-            var damageEventArgs = new PredictDamageEventArgs { HpInstance = hpi };
-            ZLib.TriggerOnPredictDamage(hero, damageEventArgs);
-
-            if (damageEventArgs.NoProcess)
-            {
-                ZLib.DamageCollection.Add(id, null);
-                return id;
-            }
 
             var aiHero = ZLib.GetUnits().FirstOrDefault(x => x.Instance.NetworkId == hero.Instance.NetworkId);
             if (aiHero != null && !ZLib.DamageCollection.ContainsKey(id))
@@ -953,6 +944,16 @@
                     if (hpi.EventType == EventType.Stealth)
                     {
                         hpi.PredictedDmg = 0;
+                    }
+
+                    var damageEventArgs = new PredictDamageEventArgs { HpInstance = hpi };
+                    ZLib.TriggerOnPredictDamage(hero, damageEventArgs);
+
+                    if (damageEventArgs.NoProcess)
+                    {
+                        Helpers.ResetIncomeDamage(aiHero);
+                        ZLib.DamageCollection.Add(id, null);
+                        return id;
                     }
 
                     hpi.Id = id;
