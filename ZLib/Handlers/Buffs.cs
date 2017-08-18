@@ -30,7 +30,7 @@ namespace ZLib.Handlers
     {
         #region Private Methods and Operators
 
-        private static void OnBuffSurrounding()
+        private static void OnBuffProximity()
         {
             try
             {
@@ -107,7 +107,7 @@ namespace ZLib.Handlers
             }
         }
 
-        private static void Obj_AI_Base_OnBuffAdd(Obj_AI_Base sender, Buff buff)
+        private static void OnBuffGain(Obj_AI_Base sender, Buff buff)
         {
             #region Buffs
 
@@ -186,8 +186,7 @@ namespace ZLib.Handlers
                     {
                         if ((int) (Game.ClockTime * 1000) - aura.TickLimiter >= aura.Interval * 1000)
                         {
-                            if (aura.Name == "velkozresearchstack"
-                                && !hero.Instance.HasBuffOfType(BuffType.Slow))
+                            if (aura.Name == "velkozresearchstack" && !hero.Instance.HasBuffOfType(BuffType.Slow))
                             {
                                 continue;
                             }
@@ -288,11 +287,11 @@ namespace ZLib.Handlers
             return dmg;
         }
 
-        internal static void StartOnUpdate()
+        internal static void Initialize()
         {
             Game.OnUpdate += OnBuffUpdate;
-            Game.OnUpdate += OnBuffSurrounding;
-            BuffManager.OnAddBuff += Obj_AI_Base_OnBuffAdd;
+            Game.OnUpdate += OnBuffProximity;
+            BuffManager.OnAddBuff += OnBuffGain;
         }
 
         #endregion

@@ -148,6 +148,114 @@ namespace ZLib.Base
         /// </value>
         public float IncomeDamage => TroyDamage + AbilityDamage + BuffDamage + ItemDamage;
 
+        /// <summary>
+        ///     Gets or sets the last debuff timestamp.
+        /// </summary>
+        /// <value>
+        ///     The last debuff timestamp.
+        /// </value>
+        [System.Obsolete("LastDebuffTimestamp is deprecated, ignore and do not use thanks.")]
+        public int LastDebuffTimestamp { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the cleanse buff count.
+        /// </summary>
+        /// <value>
+        ///     The cleanse buff count.
+        /// </value>
+        [System.Obsolete("QssBuffCount is deprecated, ignore and do not use thanks.")]
+        public int QssBuffCount { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the QSS highest buff time.
+        /// </summary>
+        /// <value>
+        ///     The QSS highest buff time.
+        /// </value>
+        [System.Obsolete("QssHighestBuffTime is deprecated, ignore and do not use thanks.")]
+        public int QssHighestBuffTime { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the cleanse buff count.
+        /// </summary>
+        /// <value>
+        ///     The cleanse buff count.
+        /// </value>
+        [System.Obsolete("CleanseBuffCount is deprecated, ignore and do not use thanks.")]
+        public int CleanseBuffCount { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the cleanse highest buff time.
+        /// </summary>
+        /// <value>
+        ///     The cleanse highest buff time.
+        /// </value>
+        [System.Obsolete("CleanseHighestBuffTime is deprecated, ignore and do not use thanks.")]
+        public int CleanseHighestBuffTime { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the dervish buff count.
+        /// </summary>
+        /// <value>
+        ///     The dervish buff count.
+        /// </value>
+        [System.Obsolete("DervishBuffCount is deprecated, ignore and do not use thanks.")]
+        public int DervishBuffCount { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the dervish highest buff time.
+        /// </summary>
+        /// <value>
+        ///     The dervish highest buff time.
+        /// </value>
+        [System.Obsolete("DervishHighestBuffTime is deprecated, ignore and do not use thanks.")]
+        public int DervishHighestBuffTime { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the mercurial buff count.
+        /// </summary>
+        /// <value>
+        ///     The mercurial buff count.
+        /// </value>
+        [System.Obsolete("MercurialBuffCount is deprecated, ignore and do not use thanks.")]
+        public int MercurialBuffCount { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the mercurial highest buff time.
+        /// </summary>
+        /// <value>
+        ///     The mercurial highest buff time.
+        /// </value>
+        [System.Obsolete("MercurialHighestBuffTime is deprecated, ignore and do not use thanks.")]
+        public int MercurialHighestBuffTime { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the mikaels buff count.
+        /// </summary>
+        /// <value>
+        ///     The mikaels buff count.
+        /// </value>
+        [System.Obsolete("MikaelsBuffCount is deprecated, ignore and do not use thanks.")]
+        public int MikaelsBuffCount { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the mikaels highest buff time.
+        /// </summary>
+        /// <value>
+        ///     The mikaels highest buff time.
+        /// </value>
+        [System.Obsolete("MikaelsHighestBuffTime is deprecated, ignore and do not use thanks.")]
+        public int MikaelsHighestBuffTime { get; set; }
+
+        /// <summary>
+        ///     Gets or sets a value indicating whether to force qss/cleanse
+        /// </summary>
+        /// <value>
+        ///     <c>true</c> if we should force qss/cleanse otherwise, <c>false</c>.
+        /// </value>
+        [System.Obsolete("ForceQss is deprecated, ignore and do not use thanks.")]
+        public bool ForceQss { get; set; }
+
         #endregion
 
         #region Internal Methods and Operators

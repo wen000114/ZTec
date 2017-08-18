@@ -246,10 +246,10 @@ namespace ZLib
 
             parent.Add(Menu);
 
-            Projections.Init();
-            Drawings.Init();
-            Buffs.StartOnUpdate();
-            Gametroys.StartOnUpdate();
+            Projections.Initizialize();
+            Drawings.Initialize();
+            Buffs.Initialize();
+            Gametroys.Initialize();
 
             Init = true;
             Console.WriteLine("ZLib: Loaded!");

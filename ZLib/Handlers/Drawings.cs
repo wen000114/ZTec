@@ -34,7 +34,7 @@
             }
         }
 
-        internal static void Init()
+        internal static void Initialize()
         {
             Render.OnRender += Render_OnRender;
         }

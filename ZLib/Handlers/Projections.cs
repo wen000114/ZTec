@@ -272,7 +272,8 @@
                                     dmg = dmg * 2;
                                 }
 
-                                EmulateDamage(attacker, hero, new Gamedata { SpellName = args.SpellData.Name }, EventType.AutoAttack, "enemy.autoattack", (float) dmg);
+                                EmulateDamage(attacker, hero, new Gamedata { SpellName = args.SpellData.Name }, EventType.AutoAttack,
+                                    "enemy.autoattack", (float) dmg);
                             }
                         }
 
@@ -483,7 +484,7 @@
                                 if (hero.Instance.Distance(attacker.ServerPosition) <= data.CastRange + 100)
                                 {
                                     var distance =
-                                        (int) (1000 * (attacker.Distance(hero.Instance.ServerPosition) 
+                                        (int) (1000 * (attacker.Distance(hero.Instance.ServerPosition)
                                             / data.MissileSpeed));
 
                                     var endtime = data.Delay + distance - Game.Ping / 2f;
@@ -770,14 +771,6 @@
             }
 
             #endregion
-        }
-
-        internal static void Init()
-        {
-            Player = ObjectManager.GetLocalPlayer();
-            GameObject.OnCreate += MissileClient_OnSpellMissileCreate;
-            Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnUnitSpellCast;
-            Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnStealth;
         }
 
         internal static void EmulateDamage(Obj_AI_Base sender, Unit hero, Gamedata data, EventType dmgType, string notes = null,
@@ -1069,6 +1062,14 @@
                     }
                 }
             }
+        }
+
+        internal static void Initizialize()
+        {
+            Player = ObjectManager.GetLocalPlayer();
+            GameObject.OnCreate += MissileClient_OnSpellMissileCreate;
+            Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnUnitSpellCast;
+            Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnStealth;
         }
 
         #endregion

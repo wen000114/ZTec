@@ -26,7 +26,9 @@ namespace ZLib.Handlers
 
     internal class Gametroys
     {
-        internal static void GameObject_OnDestroy(GameObject obj)
+        #region Internal Methods and Operators
+
+        internal static void OnDestory(GameObject obj)
         {
             if (obj.Type == GameObjectType.MissileClient)
                 return;
@@ -43,7 +45,7 @@ namespace ZLib.Handlers
             }
         }
 
-        internal static void GameObject_OnCreate(GameObject obj)
+        internal static void OnCreate(GameObject obj)
         {
             if (obj.Type == GameObjectType.MissileClient)
                 return;
@@ -61,7 +63,7 @@ namespace ZLib.Handlers
             }
         }
 
-        internal static void Game_OnUpdate()
+        internal static void OnUpdate()
         {
             try
             {
@@ -124,13 +126,11 @@ namespace ZLib.Handlers
             }
         }
 
-        #region Internal Methods and Operators
-
-        internal static void StartOnUpdate()
+        internal static void Initialize()
         {
-            Game.OnUpdate += Game_OnUpdate;
-            GameObject.OnCreate += GameObject_OnCreate;
-            GameObject.OnDestroy += GameObject_OnDestroy;
+            Game.OnUpdate += OnUpdate;
+            GameObject.OnCreate += OnCreate;
+            GameObject.OnDestroy += OnDestory;
         }
 
         #endregion
