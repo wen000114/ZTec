@@ -130,7 +130,7 @@ namespace ZLib
             Console.WriteLine("ZLib: Turret List Generated!");
         }
 
-        private static void GetGameTroysInGame()
+        private static void GetGameTroysInGame(Troydata data)
         {
             foreach (var i in ObjectManager.Get<Obj_AI_Hero>())
             {
@@ -143,20 +143,32 @@ namespace ZLib
             Console.WriteLine("ZLib: Gametroy List Generated!");
         }
 
-        private static void GetSpellsInGame()
+
+
+        private static void GetSpellsInGame(Gamedata data)
         {
-            foreach (var i in ObjectManager.Get<Obj_AI_Hero>())
+            foreach (var i in ObjectManager.Get<Obj_AI_Hero>().Where(x => x.Team != ObjectManager.GetLocalPlayer().Team))
             {
                 foreach (var item in Spells.Where(x => x.ChampionName.ToLower() == i.ChampionName.ToLower()))
                 {
                     CachedSpells.Add(item);
+                    EnemyCachedSpells.Add(item);
+                }
+            }
+
+            foreach (var i in ObjectManager.Get<Obj_AI_Hero>().Where(x => x.Team == ObjectManager.GetLocalPlayer().Team))
+            {
+                foreach (var item in Spells.Where(x => x.ChampionName.ToLower() == i.ChampionName.ToLower()))
+                {
+                    CachedSpells.Add(item);
+                    AllyCachedSpells.Add(item);
                 }
             }
 
             Console.WriteLine("ZLib: Spell List Generated!");
         }
 
-        private static void GetAurasInGame()
+        private static void GetAurasInGame(Auradata data)
         {
             foreach (var i in ObjectManager.Get<Obj_AI_Hero>())
             {
@@ -185,20 +197,11 @@ namespace ZLib
         /// <param name="menuDisplayName">Display name of the attached menu.</param>
         public static void Attach(Menu parent, string menuDisplayName = "ZLib")
         {
-            if (Init)
-            {
-                return;
-            }
-
-            new Auradata();
-            new Gamedata();
-            new Troydata();
-
             GetHeroesInGame();
             GetTurretsInGame();
-            GetSpellsInGame();
-            GetGameTroysInGame();
-            GetAurasInGame();
+            GetSpellsInGame(new Gamedata());
+            GetAurasInGame(new Auradata());
+            GetGameTroysInGame(new Troydata());
 
             Helpers.CreateLogPath();
 
@@ -251,7 +254,6 @@ namespace ZLib
             Buffs.Initialize();
             Gametroys.Initialize();
 
-            Init = true;
             Console.WriteLine("ZLib: Loaded!");
         }
 

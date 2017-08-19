@@ -34,7 +34,7 @@ namespace ZLib.Data
         /// <value>
         ///     The name of the spell.
         /// </value>
-        public string SpellName { get; internal set; }
+        public string SpellName { get; internal set; } = "";
 
         /// <summary>
         ///     Gets or sets the name of the champion.
@@ -42,7 +42,7 @@ namespace ZLib.Data
         /// <value>
         ///     The name of the champion.
         /// </value>
-        public string ChampionName { get; internal set; }
+        public string ChampionName { get; internal set; } = "";
 
         /// <summary>
         ///     Gets or sets the slot.
@@ -50,7 +50,7 @@ namespace ZLib.Data
         /// <value>
         ///     The slot.
         /// </value>
-        public SpellSlot Slot { get; internal set; }
+        public SpellSlot Slot { get; internal set; } = SpellSlot.Q;
 
         /// <summary>
         ///     Gets or sets the cast range.
@@ -58,7 +58,7 @@ namespace ZLib.Data
         /// <value>
         ///     The cast range.
         /// </value>
-        public float CastRange { get; internal set; }
+        public float CastRange { get; internal set; } = 0f;
 
         /// <summary>
         ///     Gets or sets the radius.
@@ -66,7 +66,7 @@ namespace ZLib.Data
         /// <value>
         ///     The radius.
         /// </value>
-        public float Radius { get; internal set; }
+        public float Radius { get; internal set; } = 0f;
 
         /// <summary>
         ///     Gets or sets a value indicating whether spell is global.
@@ -74,7 +74,7 @@ namespace ZLib.Data
         /// <value>
         ///     <c>true</c> if spell is global; otherwise, <c>false</c>.
         /// </value>
-        public bool Global { get; internal set; }
+        public bool Global { get; internal set; } = false;
 
         /// <summary>
         ///     Gets or sets the delay.
@@ -90,7 +90,7 @@ namespace ZLib.Data
         /// <value>
         ///     <c>true</c> if is fixed range; otherwise, <c>false</c>.
         /// </value>
-        public bool FixedRange { get; internal set; }
+        public bool FixedRange { get; internal set; } = false;
 
         /// <summary>
         ///     Gets or sets the name of the missile.
@@ -98,7 +98,7 @@ namespace ZLib.Data
         /// <value>
         ///     The name of the missile.
         /// </value>
-        public string MissileName { get; internal set; }
+        public string MissileName { get; internal set; } = "";
 
         /// <summary>
         ///     Gets or sets the extra missile names.
@@ -122,7 +122,7 @@ namespace ZLib.Data
         /// <value>
         ///     From object.
         /// </value>
-        public string[] FromObject { get; internal set; }
+        public string[] FromObject { get; internal set; } = { "" };
 
         /// <summary>
         ///     Gets or sets the event types.
@@ -130,7 +130,7 @@ namespace ZLib.Data
         /// <value>
         ///     The event types.
         /// </value>
-        public EventType[] EventTypes { get; internal set; }
+        public EventType[] EventTypes { get; internal set; } = {};
 
         /// <summary>
         ///     Gets the type of the cast.
@@ -138,7 +138,7 @@ namespace ZLib.Data
         /// <value>
         ///     The type of the cast.
         /// </value>
-        public CastType CastType { get; internal set; }
+        public CastType CastType { get; internal set; } = CastType.None;
 
         /// <summary>
         ///     Gets the collisional values
@@ -146,7 +146,7 @@ namespace ZLib.Data
         /// <value>
         ///     What it collides with.
         /// </value>
-        public CollisionObjectType[] CollidesWith { get; internal set; }
+        public CollisionObjectType[] CollidesWith { get; internal set; } = { };
 
         /// <summary>
         ///     Gets a value indicating whether this instance is perpindicular.
@@ -154,13 +154,13 @@ namespace ZLib.Data
         /// <value>
         ///     <c>true</c> if this instance is perpindicular; otherwise, <c>false</c>.
         /// </value>
-        public bool IsPerpindicular { get; internal set; }
+        public bool IsPerpindicular { get; internal set; } = false;
 
         /// <summary>
         ///     Gets a value indicating whether the spell is a basic attack amplifier.
         /// </summary>
         /// <value><c>true</c> if it is a basic attack amplifier; otherwise, <c>false</c>.</value>
-        public bool BasicAttackAmplifier { get; internal set; }
+        public bool BasicAttackAmplifier { get; internal set; } = false;
 
         #endregion
 

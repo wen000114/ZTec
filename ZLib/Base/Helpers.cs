@@ -140,7 +140,8 @@ namespace ZLib.Base
         Proximity,
         Targeted,
         Circlular,
-        Sector
+        Sector,
+        None
     }
 
     /// <summary>
