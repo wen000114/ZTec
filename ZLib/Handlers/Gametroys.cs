@@ -67,7 +67,7 @@ namespace ZLib.Handlers
         {
             try
             {
-                foreach (var hero in ZLib.GetUnits())
+                foreach (var unit in ZLib.GetUnits())
                 {
                     var troy = Gametroy.Troys.Find(x => x.Included);
                     if (troy == null)
@@ -81,7 +81,12 @@ namespace ZLib.Handlers
                     foreach (var entry in ZLib.TroyList.Where(x => x.Name.ToLower() == troy.Name.ToLower()))
                     {
                         var owner = ZLib.GetUnits().FirstOrDefault(x => x.HeroNameMatch(entry.ChampionName));
-                        if (owner == null)
+                        if (owner == null || owner.Instance == null)
+                        {
+                            continue;
+                        }
+
+                        if (owner.Instance.NetworkId == unit.Instance.NetworkId)
                         {
                             continue;
                         }
@@ -100,7 +105,7 @@ namespace ZLib.Handlers
                                 data.EventTypes = entry.EventTypes;
                         }
 
-                        if (hero.Instance.Distance(troy.Obj.Position) <= entry.Radius + hero.Instance.BoundingRadius)
+                        if (unit.Instance.Distance(troy.Obj.Position) <= entry.Radius + unit.Instance.BoundingRadius)
                         {
                             // check delay (e.g fizz bait)
                             if ((int) (Game.ClockTime * 1000) - troy.Start >= entry.DelayFromStart)
@@ -108,7 +113,7 @@ namespace ZLib.Handlers
                                 // limit the damage using an interval
                                 if ((int) (Game.ClockTime * 1000) - troy.Limiter >= entry.Interval * 1000)
                                 {
-                                    Projections.EmulateDamage(owner.Instance, hero, data, EventType.Troy, "troy.onupdate");
+                                    Projections.EmulateDamage(owner.Instance, unit, data, EventType.Troy, "troy.onupdate");
                                     troy.Limiter = (int) (Game.ClockTime * 1000);
                                 }
                             }
