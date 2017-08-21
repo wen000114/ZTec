@@ -1,4 +1,4 @@
-﻿namespace ZFlux
+﻿namespace Ares
 {
     #region
 
