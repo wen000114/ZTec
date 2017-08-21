@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{524EFB55-004B-4E4E-8119-6ECA5230E6FA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ZDev</RootNamespace>
-    <AssemblyName>ZDev</AssemblyName>
+    <RootNamespace>Ares</RootNamespace>
+    <AssemblyName>Ares</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,8 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\ZData.cs" />
-    <Compile Include="Core\ZDev.cs" />
+    <Compile Include="Bootstrap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

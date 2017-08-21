@@ -1,9 +1,8 @@
-﻿namespace ZDev
+﻿namespace ZFlux
 {
     #region
 
     using Aimtec.SDK.Events;
-    using Core;
 
     #endregion
 
@@ -18,7 +17,7 @@
 
         private static void GameEvents_GameStart()
         {
-            new ZDev();
+            new Bootstrap();
         }
 
         #endregion
