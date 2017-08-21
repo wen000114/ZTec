@@ -3,7 +3,6 @@
     #region
 
     using Aimtec.SDK.Events;
-    using ZFlux;
 
     #endregion
 
