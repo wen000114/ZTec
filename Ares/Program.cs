@@ -1,8 +1,9 @@
-﻿namespace ZFlux
+﻿namespace Ares
 {
     #region
 
     using Aimtec.SDK.Events;
+    using ZFlux;
 
     #endregion
 
