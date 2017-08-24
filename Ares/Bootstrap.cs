@@ -241,8 +241,11 @@
 
             Menu = new Menu("Ares", "Ares", true);
             Menu.Add(new MenuSeperator("sep", "\"AimtecLoader\\Data\\System\\Logs\\ZZephyr\""));
-            Menu.Add(new MenuBool("DumpData", "Debug & Dump Spell Data", false));
-            Menu.Add(new MenuBool("DumpToLower", "Dump String Values ToLower"));
+
+
+            Menu.Add(new MenuBool("DebugData", "Print Spell Data", true));
+            Menu.Add(new MenuBool("DumpData", "Export Spell Data", false));
+            Menu.Add(new MenuBool("DumpToLower", "Exports Strings To Lowercase", false));
             Menu.Attach();
 
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
@@ -275,6 +278,7 @@
                         MissileSpeed = 1000 * (range / (Game.TickCount - TestMissileStartTime))
                     };
 
+                    Console.WriteLine("");
                     Console.WriteLine("== " + missile.SpellData.Name);
                     Console.WriteLine("Core Cast Range: " + missile.SpellData.CastRange);
                     Console.WriteLine("Core Missile Speed: " + missile.SpellData.MissileSpeed);
@@ -294,7 +298,7 @@
         private void GameObject_OnCreate(GameObject sender)
         {
             var missile = sender as MissileClient;
-            if (missile != null && Menu["DumpData"].As<MenuBool>().Enabled)
+            if (missile != null && Menu["DebugData"].As<MenuBool>().Enabled)
             {
                 var aiHero = missile.SpellCaster as Obj_AI_Hero;
                 if (aiHero == null)
@@ -347,13 +351,14 @@
         private void Obj_AI_Base_OnProcessSpellCast(Obj_AI_Base sender, Obj_AI_BaseMissileClientDataEventArgs args)
         {
             var aiHero = sender as Obj_AI_Hero;
-            if (aiHero != null && Menu["DumpData"].As<MenuBool>().Enabled)
+            if (aiHero != null && Menu["DebugData"].As<MenuBool>().Enabled)
             {
                 if (args.SpellData.Name.ToLower().Contains("attack"))
                 {
                     return;
                 }
 
+                TestMissile = null;
                 LastHeroCastTime = Game.TickCount;
                 LastHeroCastPosition = sender.ServerPosition.To2D();
 
@@ -373,14 +378,23 @@
                     MissileSpeed = args.SpellData.MissileSpeed,
                     MissileAccel = args.SpellData.MissileAccel,
                     MissileMaxSpeed = args.SpellData.MissileMaxSpeed,
+                    MissileName = "",
                     SpellTargetingType = args.SpellData.TargettingType,
                     CastTime = Game.TickCount - LastHeroCastTime
                 };
+
+
 
                 var time = (int) (delay > 0 ? delay : 250);
 
                 DelayAction.Queue(time, () =>
                 {
+                    if (TestMissile != null)
+                    {
+                        processData.MissileName = TestMissile.SpellData.Name;
+                        processData.Radius = TestMissile.SpellData.LineWidth;
+                    }
+
                     // 0 - self cast (e.g orianna w)
                     // 1 - targeted/unit cast (e.g orianna e)
                     // 4 - self cast with a target (e.g nami w, amumu r)
@@ -407,9 +421,14 @@
                             processData.MissileSpeed = castSpeed;
                         }
 
-                        Console.WriteLine("== " + args.SpellData.Name);
+                        Console.WriteLine("");
+                        Console.WriteLine("== " + processData.SpellName);
                         Console.WriteLine("Core Cast Range: " + processData.CastRange);
                         Console.WriteLine("Core Missile Speed: " + args.SpellData.MissileSpeed);
+                        if (!string.IsNullOrEmpty(processData.MissileName))
+                        {
+                            Console.WriteLine("Core Missile Name: " + processData.MissileName);
+                        }
                         Console.WriteLine("Core TargetingType: " + args.SpellData.TargettingType);
                         Console.WriteLine("Est. CastTime: " + processData.CastTime);
                         Console.WriteLine("Est. Cast Delay: " + processData.Delay);
@@ -421,9 +440,14 @@
                     }
                     else
                     {
-                        Console.WriteLine("== " + args.SpellData.Name);
+                        Console.WriteLine("");
+                        Console.WriteLine("== " + processData.SpellName);
                         Console.WriteLine("Core Cast Range: " + processData.CastRange);
                         Console.WriteLine("Core Missile Speed: " + args.SpellData.MissileSpeed);
+                        if (!string.IsNullOrEmpty(processData.MissileName))
+                        {
+                            Console.WriteLine("Core Missile Name: " + processData.MissileName);
+                        }
                         Console.WriteLine("Core TargetingType: " + args.SpellData.TargettingType);
                         Console.WriteLine("Est. Cast Delay: " + processData.Delay);
                         Console.WriteLine("Exported (OnProcess)");
@@ -437,40 +461,48 @@
 
         private void ExportSpellData(Data data)
         {
-            TestMissile = null;
-
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs", "ZZephyr",
-                $"zzephyr_{data.ChampionName.ToLower()}.txt");
-
-            var file = new StreamWriter(path, true);
-            if (data.SpellName.Contains("attack"))
+            if (!Menu["DumpData"].Enabled || data == null)
             {
                 return;
             }
 
-            var toLower = Menu["DumpToLower"].As<MenuBool>().Enabled;
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Logs", "ZZephyr",
+                $"zzephyr_{data.ChampionName.ToLower()}.txt");
 
-            file.WriteLine(@"#region ZFlux © 2017 Steiner Solutions");
-            file.WriteLine(@"// Dumps spell data from the client into a text file.");
-            file.WriteLine(@"// {0}", DateTime.Now.ToString("F"));
-            file.WriteLine(@"#endregion");
-            file.WriteLine(@"");
-            file.WriteLine(@"Spells.Add(new Gamedata");
-            file.WriteLine(@"{");
-            file.WriteLine(@"    SpellName = ""{0}"",", toLower ? data.SpellName.ToLower() : data.SpellName);
-            file.WriteLine(@"    ChampionName = ""{0}"",", toLower ? data.ChampionName.ToLower() : data.ChampionName);
-            file.WriteLine(@"    Slot = SpellSlot.{0},", data.Slot);
-            file.WriteLine(@"    CastRange = {0}f,", data.CastRange);
-            file.WriteLine(@"    Radius = {0}f,", data.Radius);
-            file.WriteLine(@"    Delay = {0}f,", data.Delay);
-            file.WriteLine(@"    TargetingType = {0},", (ProcessSpellType) data.SpellTargetingType);
-            file.WriteLine(@"    EventTypes = new[] {{ }},");
-            file.WriteLine(@"    FixedRange = true,");
-            file.WriteLine(@"    MissileName = ""{0}"",", toLower ? data.MissileName.ToLower() : data.MissileName);
-            file.WriteLine(@"    MissileSpeed = {0},", data.MissileSpeed);
-            file.WriteLine(@"});");
-            file.WriteLine(@"");
-            file.Close();
+            using (StreamWriter streamer = new StreamWriter(path, true))
+            {
+                if (data.SpellName.Contains("attack"))
+                {
+                    return;
+                }
+
+                var toLower = Menu["DumpToLower"].As<MenuBool>().Enabled;
+
+                streamer.WriteLine(@"#region Ares © 2017 Kurisu Solutions");
+                streamer.WriteLine(@"// Dumps spell data from the client to text.");
+                streamer.WriteLine(@"// {0}", DateTime.Now.ToString("F"));
+                streamer.WriteLine(@"#endregion");
+                streamer.WriteLine(@"");
+                streamer.WriteLine(@"Spells.Add(new Gamedata");
+                streamer.WriteLine(@"{");
+                streamer.WriteLine(@"    SpellName = ""{0}"",", toLower ? data.SpellName.ToLower() : data.SpellName);
+                streamer.WriteLine(@"    ChampionName = ""{0}"",", toLower ? data.ChampionName.ToLower() : data.ChampionName);
+                streamer.WriteLine(@"    Slot = SpellSlot.{0},", data.Slot);
+                streamer.WriteLine(@"    CastRange = {0}f,", data.CastRange);
+                streamer.WriteLine(@"    Radius = {0}f,", data.Radius);
+                streamer.WriteLine(@"    Delay = {0}f,", data.Delay);
+                streamer.WriteLine(@"    TargetingType = {0},", (ProcessSpellType) data.SpellTargetingType);
+                streamer.WriteLine(@"    EventTypes = new[] {{ }},");
+                streamer.WriteLine(@"    FixedRange = true,");
+                if (!string.IsNullOrEmpty(data.MissileName))
+                {
+                    streamer.WriteLine(@"    MissileName = ""{0}"",", toLower ? data.MissileName.ToLower() : data.MissileName);
+                }
+                streamer.WriteLine(@"    MissileSpeed = {0},", data.MissileSpeed);
+                streamer.WriteLine(@"});");
+                streamer.WriteLine(@"");
+                streamer.Close(); 
+            }
         }
 
         #endregion
